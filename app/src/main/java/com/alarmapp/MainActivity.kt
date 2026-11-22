@@ -82,12 +82,19 @@ class MainActivity : ComponentActivity() {
                                         label = { Text(item.title) },
                                         selected = isSelected,
                                         onClick = {
-                                            navController.navigate(item.route) {
-                                                popUpTo(navController.graph.findStartDestination().id) {
-                                                    saveState = true
+                                            if (currentRoute != item.route) {
+                                                if (item.route == Screen.Alarms.route) {
+                                                    if (!navController.popBackStack(Screen.Alarms.route, inclusive = false)) {
+                                                        navController.navigate(Screen.Alarms.route)
+                                                    }
+                                                } else {
+                                                    navController.navigate(item.route) {
+                                                        popUpTo(Screen.Alarms.route) {
+                                                            inclusive = false
+                                                        }
+                                                        launchSingleTop = true
+                                                    }
                                                 }
-                                                launchSingleTop = true
-                                                restoreState = true
                                             }
                                         }
                                     )
@@ -122,9 +129,24 @@ class MainActivity : ComponentActivity() {
                                 onDeleteAlarm = { id -> listViewModel.deleteAlarm(id) },
                                 onEditAlarm = { id -> navController.navigate("editor/$id") },
                                 onAddAlarm = { navController.navigate("editor/new") },
-                                onCalendarClick = { navController.navigate(Screen.Sleep.route) },
-                                onNavigateToSettings = { navController.navigate(Screen.Settings.route) },
-                                onNavigateToDeveloper = { navController.navigate(Screen.Developer.route) }
+                                onCalendarClick = {
+                                    navController.navigate(Screen.Sleep.route) {
+                                        popUpTo(Screen.Alarms.route) { inclusive = false }
+                                        launchSingleTop = true
+                                    }
+                                },
+                                onNavigateToSettings = {
+                                    navController.navigate(Screen.Settings.route) {
+                                        popUpTo(Screen.Alarms.route) { inclusive = false }
+                                        launchSingleTop = true
+                                    }
+                                },
+                                onNavigateToDeveloper = {
+                                    navController.navigate(Screen.Developer.route) {
+                                        popUpTo(Screen.Alarms.route) { inclusive = false }
+                                        launchSingleTop = true
+                                    }
+                                }
                             )
                         }
 
