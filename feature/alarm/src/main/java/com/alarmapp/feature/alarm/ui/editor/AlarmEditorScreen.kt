@@ -102,8 +102,12 @@ fun AlarmEditorScreen(
         }
     }
 
+    val isLight = MaterialTheme.colorScheme.background == MinimalBackground
+    val bottomBtnBg = if (isLight) MinimalBlack else MaterialTheme.colorScheme.surfaceVariant
+    val bottomBtnFg = if (isLight) MinimalWhite else MaterialTheme.colorScheme.onSurface
+
     Scaffold(
-        containerColor = MinimalBackground,
+        containerColor = MaterialTheme.colorScheme.background,
         bottomBar = {
             // Minimalist Bottom Bar matching UI mockup
             Box(
@@ -121,14 +125,14 @@ fun AlarmEditorScreen(
                     Surface(
                         onClick = onBack,
                         shape = CircleShape,
-                        color = Color(0xFFD4D4D8),
+                        color = if (isLight) Color(0xFFD4D4D8) else MaterialTheme.colorScheme.surfaceVariant,
                         modifier = Modifier.size(54.dp)
                     ) {
                         Box(contentAlignment = Alignment.Center) {
                             Icon(
                                 imageVector = Icons.Default.Close,
                                 contentDescription = "Cancel",
-                                tint = MinimalBlack,
+                                tint = if (isLight) MinimalBlack else MaterialTheme.colorScheme.onSurface,
                                 modifier = Modifier.size(24.dp)
                             )
                         }
@@ -151,7 +155,7 @@ fun AlarmEditorScreen(
                             text = if (screenMode == EditorScreenMode.CHOOSE_TIME) "Choose time" else "Choose the Game",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.SemiBold,
-                            color = MinimalBlack
+                            color = MaterialTheme.colorScheme.onBackground
                         )
                     }
 
@@ -159,7 +163,7 @@ fun AlarmEditorScreen(
                     Surface(
                         onClick = onSave,
                         shape = CircleShape,
-                        color = MinimalBlack,
+                        color = bottomBtnBg,
                         shadowElevation = 8.dp,
                         modifier = Modifier.size(54.dp)
                     ) {
@@ -167,7 +171,7 @@ fun AlarmEditorScreen(
                             Icon(
                                 imageVector = Icons.Default.Check,
                                 contentDescription = "Save",
-                                tint = MinimalWhite,
+                                tint = bottomBtnFg,
                                 modifier = Modifier.size(26.dp)
                             )
                         }
@@ -478,6 +482,9 @@ fun ChooseTimeScreen(
     onDeleteClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
+    val isLight = MaterialTheme.colorScheme.background == MinimalBackground
+    val lensColor = if (isLight) Color(0xFFF1F1F4) else MaterialTheme.colorScheme.surface
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -517,7 +524,7 @@ fun ChooseTimeScreen(
                     lineTo(0f, h)
                     close()
                 }
-                drawPath(leftPath, color = Color(0xFFF1F1F4))
+                drawPath(leftPath, color = lensColor)
 
                 // Draw smooth off-white curved lens for Right (Minutes)
                 val rightPath = Path().apply {
@@ -536,7 +543,7 @@ fun ChooseTimeScreen(
                     lineTo(w, h)
                     close()
                 }
-                drawPath(rightPath, color = Color(0xFFF1F1F4))
+                drawPath(rightPath, color = lensColor)
             }
 
             // Dual Columns (Hours & Minutes)
@@ -628,7 +635,7 @@ fun ChooseTimeScreen(
         Surface(
             onClick = onSwitchToGame,
             shape = RoundedCornerShape(16.dp),
-            color = Color(0xFFDFDFE3),
+            color = MaterialTheme.colorScheme.surfaceVariant,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp)
@@ -644,7 +651,7 @@ fun ChooseTimeScreen(
                     Icon(
                         imageVector = Icons.Default.Extension,
                         contentDescription = null,
-                        tint = MinimalBlack,
+                        tint = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.size(20.dp)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
@@ -652,14 +659,14 @@ fun ChooseTimeScreen(
                         text = "Challenge: ${challengeConfig?.let { it::class.simpleName } ?: "None"}",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = MinimalBlack
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                 }
 
                 Icon(
                     imageVector = Icons.Default.ChevronRight,
                     contentDescription = null,
-                    tint = MinimalBlack
+                    tint = MaterialTheme.colorScheme.onSurface
                 )
             }
         }
@@ -744,7 +751,7 @@ fun HourColumnPicker(
                     .height(52.dp)
                     .clip(RoundedCornerShape(14.dp))
                     .then(
-                        if (isCurrent) Modifier.border(1.5f.dp, Color(0xFFC0C0C6), RoundedCornerShape(14.dp))
+                        if (isCurrent) Modifier.border(1.5f.dp, MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f), RoundedCornerShape(14.dp))
                         else Modifier
                     )
                     .clickable { onSelect(h) },
@@ -754,7 +761,7 @@ fun HourColumnPicker(
                     text = "%02d".format(h),
                     fontSize = if (isCurrent) 38.sp else 28.sp,
                     fontWeight = if (isCurrent) FontWeight.Bold else FontWeight.Normal,
-                    color = MinimalBlack.copy(alpha = alpha)
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = alpha)
                 )
             }
         }
@@ -805,7 +812,7 @@ fun MinuteColumnPicker(
                     .height(52.dp)
                     .clip(RoundedCornerShape(14.dp))
                     .then(
-                        if (isCurrent) Modifier.border(1.5f.dp, Color(0xFFC0C0C6), RoundedCornerShape(14.dp))
+                        if (isCurrent) Modifier.border(1.5f.dp, MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f), RoundedCornerShape(14.dp))
                         else Modifier
                     )
                     .clickable { onSelect(m) },
@@ -815,7 +822,7 @@ fun MinuteColumnPicker(
                     text = "%02d".format(m),
                     fontSize = if (isCurrent) 38.sp else 28.sp,
                     fontWeight = if (isCurrent) FontWeight.Bold else FontWeight.Normal,
-                    color = MinimalBlack.copy(alpha = alpha)
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = alpha)
                 )
             }
         }
@@ -840,7 +847,7 @@ fun QuickSettingItem(
         Icon(
             imageVector = icon,
             contentDescription = title,
-            tint = MinimalBlack,
+            tint = MaterialTheme.colorScheme.onBackground,
             modifier = Modifier.size(22.dp)
         )
         Spacer(modifier = Modifier.height(4.dp))
@@ -848,7 +855,7 @@ fun QuickSettingItem(
             text = title,
             fontSize = 13.sp,
             fontWeight = FontWeight.Bold,
-            color = MinimalBlack
+            color = MaterialTheme.colorScheme.onBackground
         )
         Text(
             text = subtitle,
@@ -892,6 +899,8 @@ fun ChooseGameScreen(
         mutableIntStateOf(if (idx != -1) idx else 0)
     }
 
+    val isLight = MaterialTheme.colorScheme.background == MinimalBackground
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -911,18 +920,18 @@ fun ChooseGameScreen(
                     text = "Choose",
                     fontSize = 32.sp,
                     fontWeight = FontWeight.Bold,
-                    color = MinimalBlack
+                    color = MaterialTheme.colorScheme.onBackground
                 )
                 Text(
                     text = "the Game",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Medium,
-                    color = MinimalTextLight
+                    color = if (isLight) MinimalTextLight else MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
 
             TextButton(onClick = onSwitchToTime) {
-                Text("Time", fontWeight = FontWeight.Bold, color = MinimalBlack)
+                Text("Time", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
             }
         }
 
@@ -944,7 +953,7 @@ fun ChooseGameScreen(
                         onSelectChallenge(config)
                     },
                     shape = RoundedCornerShape(24.dp),
-                    color = if (isSelected) MinimalWhite else Color(0xFFF1F1F4),
+                    color = if (isSelected) (if (isLight) MinimalWhite else MaterialTheme.colorScheme.surface) else (if (isLight) Color(0xFFF1F1F4) else MaterialTheme.colorScheme.surfaceVariant),
                     shadowElevation = if (isSelected) 6.dp else 1.dp,
                     modifier = Modifier
                         .width(260.dp)
@@ -961,7 +970,7 @@ fun ChooseGameScreen(
                             text = title,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
-                            color = MinimalBlack
+                            color = MaterialTheme.colorScheme.onSurface
                         )
 
                         // Visual Game Representation Card
@@ -979,9 +988,9 @@ fun ChooseGameScreen(
                                 }
                                 is ChallengeConfig.Math -> {
                                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                        Text("24 × 3 + 15", fontSize = 26.sp, fontWeight = FontWeight.Bold)
+                                        Text("24 × 3 + 15", fontSize = 26.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onSurface)
                                         Spacer(modifier = Modifier.height(8.dp))
-                                        Text("Solve to dismiss", fontSize = 13.sp, color = MinimalTextMuted)
+                                        Text("Solve to dismiss", fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
                                     }
                                 }
                                 is ChallengeConfig.Shake -> {
@@ -989,11 +998,11 @@ fun ChooseGameScreen(
                                         Icon(
                                             imageVector = Icons.Default.Vibration,
                                             contentDescription = null,
-                                            tint = MinimalBlack,
+                                            tint = MaterialTheme.colorScheme.onSurface,
                                             modifier = Modifier.size(48.dp)
                                         )
                                         Spacer(modifier = Modifier.height(8.dp))
-                                        Text("30 Shakes", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                                        Text("30 Shakes", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onSurface)
                                     }
                                 }
                                 is ChallengeConfig.Nfc -> {
@@ -1001,11 +1010,11 @@ fun ChooseGameScreen(
                                         Icon(
                                             imageVector = Icons.Default.Nfc,
                                             contentDescription = null,
-                                            tint = MinimalBlack,
+                                            tint = MaterialTheme.colorScheme.onSurface,
                                             modifier = Modifier.size(48.dp)
                                         )
                                         Spacer(modifier = Modifier.height(8.dp))
-                                        Text("Scan Registered Tag", fontSize = 14.sp, fontWeight = FontWeight.Medium)
+                                        Text("Scan Registered Tag", fontSize = 14.sp, fontWeight = FontWeight.Medium, color = MaterialTheme.colorScheme.onSurface)
                                     }
                                 }
                                 else -> {}
@@ -1017,7 +1026,7 @@ fun ChooseGameScreen(
                             text = if (isSelected) "Active Challenge" else "Tap to Select",
                             fontSize = 12.sp,
                             fontWeight = FontWeight.SemiBold,
-                            color = if (isSelected) MinimalBlack else MinimalTextLight
+                            color = if (isSelected) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -1027,6 +1036,9 @@ fun ChooseGameScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         // Circular Dial Canvas with Centered Digital Time
+        val onSurfaceColor = MaterialTheme.colorScheme.onSurface
+        val dialTickSecondary = if (isLight) Color(0xFFC4C4CA) else Color(0xFF44444E)
+        val innerCircleColor = if (isLight) Color(0xFFE0E0E6) else Color(0xFF2E2E36)
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -1051,7 +1063,7 @@ fun ChooseGameScreen(
                     val endY = center.y + radius * sin(angleRad).toFloat()
 
                     drawLine(
-                        color = if (isHour) MinimalBlack else Color(0xFFC4C4CA),
+                        color = if (isHour) onSurfaceColor else dialTickSecondary,
                         start = Offset(startX, startY),
                         end = Offset(endX, endY),
                         strokeWidth = if (isHour) 2.5f else 1.2f
@@ -1060,7 +1072,7 @@ fun ChooseGameScreen(
 
                 // Inner circle outline
                 drawCircle(
-                    color = Color(0xFFE0E0E6),
+                    color = innerCircleColor,
                     radius = radius - 16f,
                     style = Stroke(width = 1.5f)
                 )
@@ -1076,7 +1088,7 @@ fun ChooseGameScreen(
                 text = "%d:%02d".format(hour12, alarmTime.minute),
                 fontSize = 36.sp,
                 fontWeight = FontWeight.Medium,
-                color = MinimalBlack
+                color = MaterialTheme.colorScheme.onSurface
             )
         }
     }
@@ -1085,6 +1097,8 @@ fun ChooseGameScreen(
 // 12x12 Dot Matrix Preview matching the mockup
 @Composable
 fun DotMatrixPatternPreview() {
+    val isLight = MaterialTheme.colorScheme.background == MinimalBackground
+    val dotColor = MaterialTheme.colorScheme.onSurface
     Canvas(
         modifier = Modifier
             .size(150.dp)
@@ -1102,7 +1116,7 @@ fun DotMatrixPatternPreview() {
                 // Highlighting center pattern
                 val isPattern = (r in 4..7 && c in 4..7)
                 drawCircle(
-                    color = if (isPattern) MinimalBlack else Color(0xFFC0C0C8),
+                    color = if (isPattern) dotColor else (if (isLight) Color(0xFFC0C0C8) else Color(0xFF44444E)),
                     radius = if (isPattern) 3.5f else 2.2f,
                     center = Offset(cx, cy)
                 )

@@ -53,12 +53,34 @@ private val DarkColorScheme = darkColorScheme(
     onError = MinimalWhite
 )
 
+private val AmoledColorScheme = darkColorScheme(
+    primary = MinimalWhite,
+    onPrimary = Color.Black,
+    primaryContainer = Color(0xFF161616),
+    onPrimaryContainer = MinimalWhite,
+    secondary = MinimalRedAccent,
+    onSecondary = MinimalWhite,
+    background = Color(0xFF000000),
+    onBackground = Color(0xFFFFFFFF),
+    surface = Color(0xFF101010),
+    onSurface = Color(0xFFFFFFFF),
+    surfaceVariant = Color(0xFF1C1C1E),
+    onSurfaceVariant = Color(0xFFAAAAAF),
+    error = MinimalRedAccent,
+    onError = MinimalWhite
+)
+
 @Composable
 fun AlarmTheme(
-    darkTheme: Boolean = false, // Design mockup is light monochrome
+    themeMode: String = "Light",
+    darkTheme: Boolean = false,
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) DarkColorScheme else LightColorScheme
+    val colors = when {
+        themeMode.startsWith("AMOLED") -> AmoledColorScheme
+        themeMode == "Dark" || darkTheme -> DarkColorScheme
+        else -> LightColorScheme
+    }
     MaterialTheme(
         colorScheme = colors,
         content = content

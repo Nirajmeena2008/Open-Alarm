@@ -55,7 +55,18 @@ class MainActivity : ComponentActivity() {
         val app = application as AlarmApplication
 
         setContent {
-            AlarmTheme {
+            val settingsViewModel = remember {
+                SettingsViewModel(
+                    this@MainActivity,
+                    app.settingsRepository,
+                    app.alarmRepository,
+                    app.routineRepository,
+                    app.backupManager
+                )
+            }
+            val settingsState by settingsViewModel.uiState.collectAsState()
+
+            AlarmTheme(themeMode = settingsState.themeMode) {
                 val navController = rememberNavController()
                 val currentBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentRoute = currentBackStackEntry?.destination?.route
@@ -227,23 +238,10 @@ class MainActivity : ComponentActivity() {
 
                         // Settings Tab
                         composable(Screen.Settings.route) {
-                            val settingsViewModel = remember {
-                                SettingsViewModel(
-                                    this@MainActivity,
-                                    app.settingsRepository,
-                                    app.alarmRepository,
-                                    app.routineRepository,
-                                    app.backupManager
-                                )
-                            }
-                            val settingsState by settingsViewModel.uiState.collectAsState()
-
                             SettingsScreen(
                                 uiState = settingsState,
                                 onSetTheme = { t -> settingsViewModel.setTheme(t) },
                                 onSetSnoozeDuration = { s -> settingsViewModel.setSnoozeDuration(s) },
-                                onExportBackup = { pwd -> settingsViewModel.exportBackup(pwd) {} },
-                                onImportBackup = { pwd -> settingsViewModel.importBackup(ByteArray(0), pwd) },
                                 onNavigateToDeveloper = { navController.navigate(Screen.Developer.route) }
                             )
                         }

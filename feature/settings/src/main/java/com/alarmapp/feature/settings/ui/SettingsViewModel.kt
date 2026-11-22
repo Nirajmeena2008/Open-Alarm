@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 data class SettingsUiState(
-    val themeMode: String = "AMOLED",
+    val themeMode: String = "Light",
     val defaultSnoozeDuration: Int = 5,
     val defaultVolumeRampDuration: Int = 60,
     val isBatteryOptimizationIgnored: Boolean = false,
@@ -27,10 +27,28 @@ class SettingsViewModel(
     private val backupManager: BackupManager
 ) : ViewModel() {
 
-    private val _themeMode = MutableStateFlow("AMOLED")
+    private val _themeMode = MutableStateFlow("Light")
     private val _snoozeDuration = MutableStateFlow(5)
     private val _rampDuration = MutableStateFlow(60)
     private val _backupMessage = MutableStateFlow<String?>(null)
+
+    init {
+        viewModelScope.launch {
+            settingsRepository.getString("theme_mode", "Light").collect { savedTheme ->
+                _themeMode.value = savedTheme
+            }
+        }
+        viewModelScope.launch {
+            settingsRepository.getInt("snooze_duration", 5).collect { savedSnooze ->
+                _snoozeDuration.value = savedSnooze
+            }
+        }
+        viewModelScope.launch {
+            settingsRepository.getInt("ramp_duration", 60).collect { savedRamp ->
+                _rampDuration.value = savedRamp
+            }
+        }
+    }
 
     val uiState: StateFlow<SettingsUiState> = combine(
         _themeMode,
@@ -56,14 +74,23 @@ class SettingsViewModel(
 
     fun setTheme(mode: String) {
         _themeMode.value = mode
+        viewModelScope.launch {
+            settingsRepository.setString("theme_mode", mode)
+        }
     }
 
     fun setSnoozeDuration(minutes: Int) {
         _snoozeDuration.value = minutes
+        viewModelScope.launch {
+            settingsRepository.setInt("snooze_duration", minutes)
+        }
     }
 
     fun setRampDuration(seconds: Int) {
         _rampDuration.value = seconds
+        viewModelScope.launch {
+            settingsRepository.setInt("ramp_duration", seconds)
+        }
     }
 
     fun exportBackup(password: String, onExported: (ByteArray) -> Unit) {

@@ -102,8 +102,12 @@ fun AlarmListScreen(
         null
     }
 
+    val isLight = MaterialTheme.colorScheme.background == MinimalBackground
+    val dockBg = if (isLight) MinimalBlack else MaterialTheme.colorScheme.surfaceVariant
+    val dockFg = if (isLight) MinimalWhite else MaterialTheme.colorScheme.onSurface
+
     Scaffold(
-        containerColor = MinimalBackground,
+        containerColor = MaterialTheme.colorScheme.background,
         bottomBar = {
             // Floating Dock Bar matching the UI design
             Box(
@@ -121,7 +125,7 @@ fun AlarmListScreen(
                     Surface(
                         onClick = onCalendarClick,
                         shape = CircleShape,
-                        color = MinimalBlack,
+                        color = dockBg,
                         shadowElevation = 8.dp,
                         modifier = Modifier.size(54.dp)
                     ) {
@@ -129,7 +133,7 @@ fun AlarmListScreen(
                             Icon(
                                 imageVector = Icons.Default.CalendarMonth,
                                 contentDescription = "Calendar / Routines",
-                                tint = MinimalWhite,
+                                tint = dockFg,
                                 modifier = Modifier.size(24.dp)
                             )
                         }
@@ -138,7 +142,7 @@ fun AlarmListScreen(
                     // Center timeline capsule dock
                     Surface(
                         shape = RoundedCornerShape(27.dp),
-                        color = MinimalBlack,
+                        color = dockBg,
                         shadowElevation = 8.dp,
                         modifier = Modifier
                             .weight(1f)
@@ -157,7 +161,7 @@ fun AlarmListScreen(
                                 text = String.format("%02d:%02d", currentTime.hour, currentTime.minute),
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = MinimalWhite
+                                color = dockFg
                             )
 
                             // Mini ruler canvas
@@ -213,7 +217,7 @@ fun AlarmListScreen(
                     Surface(
                         onClick = onAddAlarm,
                         shape = CircleShape,
-                        color = MinimalBlack,
+                        color = dockBg,
                         shadowElevation = 8.dp,
                         modifier = Modifier.size(54.dp)
                     ) {
@@ -221,7 +225,7 @@ fun AlarmListScreen(
                             Icon(
                                 imageVector = Icons.Default.Add,
                                 contentDescription = "Add Alarm",
-                                tint = MinimalWhite,
+                                tint = dockFg,
                                 modifier = Modifier.size(28.dp)
                             )
                         }
@@ -251,7 +255,7 @@ fun AlarmListScreen(
                     style = MaterialTheme.typography.headlineLarge.copy(
                         fontWeight = FontWeight.Bold,
                         fontSize = 32.sp,
-                        color = MinimalBlack
+                        color = MaterialTheme.colorScheme.onBackground
                     )
                 )
 
@@ -262,7 +266,7 @@ fun AlarmListScreen(
                         Icon(
                             imageVector = Icons.Default.KeyboardArrowDown,
                             contentDescription = "Options",
-                            tint = MinimalBlack,
+                            tint = MaterialTheme.colorScheme.onBackground,
                             modifier = Modifier.size(28.dp)
                         )
                     }
@@ -305,13 +309,13 @@ fun AlarmListScreen(
                 fontSize = 72.sp,
                 fontWeight = FontWeight.Light,
                 letterSpacing = (-2).sp,
-                color = MinimalBlack
+                color = MaterialTheme.colorScheme.onBackground
             )
 
             // Subtitle: "The next alarm clock in X min"
             val annotatedCountdown = buildAnnotatedString {
                 append("The next alarm clock in ")
-                withStyle(SpanStyle(fontWeight = FontWeight.Bold, color = MinimalBlack)) {
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)) {
                     append(countdownText ?: "none set")
                 }
             }
@@ -326,7 +330,7 @@ fun AlarmListScreen(
             // 24-Hour Timeline / Ruler Bar Graph
             Card(
                 shape = RoundedCornerShape(20.dp),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFFEDEDF0)),
+                colors = CardDefaults.cardColors(containerColor = if (isLight) Color(0xFFEDEDF0) else MaterialTheme.colorScheme.surface),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(136.dp)
@@ -368,7 +372,7 @@ fun AlarmListScreen(
                                     text = "Now",
                                     fontSize = 11.sp,
                                     fontWeight = FontWeight.SemiBold,
-                                    color = MinimalBlack
+                                    color = MaterialTheme.colorScheme.onSurface
                                 )
                             }
 
@@ -378,18 +382,20 @@ fun AlarmListScreen(
                                     modifier = Modifier
                                         .size(7.dp)
                                         .clip(CircleShape)
-                                        .background(MinimalBlack)
+                                        .background(MaterialTheme.colorScheme.onSurface)
                                 )
                                 Spacer(modifier = Modifier.width(4.dp))
                                 Text(
                                     text = "Alarm",
                                     fontSize = 11.sp,
                                     fontWeight = FontWeight.SemiBold,
-                                    color = MinimalBlack
+                                    color = MaterialTheme.colorScheme.onSurface
                                 )
                             }
                         }
                     }
+
+                    val alarmPinColor = MaterialTheme.colorScheme.onSurface
 
                     // Center Ruler Canvas
                     Canvas(
@@ -417,7 +423,7 @@ fun AlarmListScreen(
                             val bottom = size.height - top
 
                             drawLine(
-                                color = if (isSixHour) Color(0xFFAAAAAF) else Color(0xFFCFCFD5),
+                                color = if (isLight) (if (isSixHour) Color(0xFFAAAAAF) else Color(0xFFCFCFD5)) else (if (isSixHour) Color(0xFF88888F) else Color(0xFF3A3A42)),
                                 start = Offset(x, top),
                                 end = Offset(x, bottom),
                                 strokeWidth = if (isSixHour) 1.8f else 1.2f,
@@ -433,7 +439,7 @@ fun AlarmListScreen(
                                 val alarmX = size.width * alarmRatio
 
                                 drawLine(
-                                    color = MinimalBlack,
+                                    color = alarmPinColor,
                                     start = Offset(alarmX, 0f),
                                     end = Offset(alarmX, size.height),
                                     strokeWidth = 2.5f,
@@ -442,7 +448,7 @@ fun AlarmListScreen(
 
                                 // Solid black pin head
                                 drawCircle(
-                                    color = MinimalBlack,
+                                    color = alarmPinColor,
                                     radius = 4.5f,
                                     center = Offset(alarmX, 4f)
                                 )
@@ -498,7 +504,7 @@ fun AlarmListScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(24.dp))
-                    .background(Color(0xFFE2E2E6))
+                    .background(if (isLight) Color(0xFFE2E2E6) else MaterialTheme.colorScheme.surface)
                     .padding(vertical = 4.dp, horizontal = 4.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
@@ -509,7 +515,7 @@ fun AlarmListScreen(
                         modifier = Modifier
                             .weight(1f)
                             .clip(RoundedCornerShape(18.dp))
-                            .background(if (isSelected) MinimalWhite else Color.Transparent)
+                            .background(if (isSelected) (if (isLight) MinimalWhite else MaterialTheme.colorScheme.surfaceVariant) else Color.Transparent)
                             .then(if (isSelected) Modifier.shadow(2.dp, RoundedCornerShape(18.dp)) else Modifier)
                             .clickable { selectedDayIndex = index }
                             .padding(vertical = 8.dp),
@@ -519,7 +525,7 @@ fun AlarmListScreen(
                             text = day,
                             fontSize = 13.sp,
                             fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
-                            color = if (isSelected) MinimalBlack else MinimalTextMuted
+                            color = if (isSelected) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -602,7 +608,7 @@ fun MinimalAlarmCard(
     Card(
         shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(
-            containerColor = if (alarm.isEnabled) MinimalWhite else Color(0xFFF0F0F2)
+            containerColor = if (alarm.isEnabled) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.surfaceVariant
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = if (alarm.isEnabled) 6.dp else 1.dp),
         modifier = modifier
@@ -632,14 +638,14 @@ fun MinimalAlarmCard(
                         text = "%d:%02d".format(hour12, alarm.time.minute),
                         fontSize = 38.sp,
                         fontWeight = FontWeight.Medium,
-                        color = if (alarm.isEnabled) MinimalBlack else MinimalTextLight
+                        color = if (alarm.isEnabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
                         text = amPm,
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = if (alarm.isEnabled) MinimalBlack else MinimalTextLight,
+                        color = if (alarm.isEnabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(bottom = 6.dp)
                     )
                 }
@@ -652,14 +658,14 @@ fun MinimalAlarmCard(
                     Surface(
                         onClick = { showDeleteConfirm = true },
                         shape = CircleShape,
-                        color = Color(0xFFF3F3F5),
+                        color = MaterialTheme.colorScheme.surfaceVariant,
                         modifier = Modifier.size(36.dp)
                     ) {
                         Box(contentAlignment = Alignment.Center) {
                             Icon(
                                 imageVector = Icons.Default.DeleteOutline,
                                 contentDescription = "Delete Alarm",
-                                tint = Color(0xFF8E8E93),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.size(18.dp)
                             )
                         }
@@ -669,14 +675,14 @@ fun MinimalAlarmCard(
                     Surface(
                         onClick = { onToggle(!alarm.isEnabled) },
                         shape = CircleShape,
-                        color = if (alarm.isEnabled) MinimalBlack else Color(0xFFDDDDDF),
+                        color = if (alarm.isEnabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceVariant,
                         modifier = Modifier.size(38.dp)
                     ) {
                         Box(contentAlignment = Alignment.Center) {
                             Icon(
                                 imageVector = if (alarm.isEnabled) Icons.Default.PlayArrow else Icons.Default.Stop,
                                 contentDescription = if (alarm.isEnabled) "Disable" else "Enable",
-                                tint = if (alarm.isEnabled) MinimalWhite else MinimalTextMuted,
+                                tint = if (alarm.isEnabled) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.size(20.dp)
                             )
                         }
@@ -694,7 +700,7 @@ fun MinimalAlarmCard(
                     text = "• $soundTitle",
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Medium,
-                    color = MinimalTextMuted,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,
                     modifier = Modifier.weight(1f, fill = false)
                 )
@@ -704,7 +710,7 @@ fun MinimalAlarmCard(
                         text = challengeLabel,
                         fontSize = 11.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = MinimalBlack,
+                        color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier
                             .clip(RoundedCornerShape(8.dp))
                             .background(Color(0xFFEBEBEF))

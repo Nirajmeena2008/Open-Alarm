@@ -24,14 +24,10 @@ fun SettingsScreen(
     uiState: SettingsUiState,
     onSetTheme: (String) -> Unit,
     onSetSnoozeDuration: (Int) -> Unit,
-    onExportBackup: (String) -> Unit,
-    onImportBackup: (String) -> Unit,
     onNavigateToDeveloper: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
-    var showExportDialog by remember { mutableStateOf(false) }
-    var showImportDialog by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -72,7 +68,7 @@ fun SettingsScreen(
                         )
                         Spacer(modifier = Modifier.height(12.dp))
 
-                        val themes = listOf("AMOLED (Pure Black)", "Dark", "Light")
+                        val themes = listOf("Light", "Dark", "AMOLED (Pure Black)")
                         themes.forEach { theme ->
                             Row(
                                 modifier = Modifier
@@ -143,64 +139,6 @@ fun SettingsScreen(
                 }
             }
 
-            // Backup & Restore Section
-            item {
-                Card(
-                    shape = RoundedCornerShape(20.dp),
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Column(modifier = Modifier.padding(20.dp)) {
-                        Text(
-                            text = "Backup & Restore",
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Spacer(modifier = Modifier.height(8.dp))
-                        Text(
-                            text = "Export and import your alarms and routines using AES-256-GCM encryption.",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        Spacer(modifier = Modifier.height(16.dp))
-
-                        Row(
-                            horizontalArrangement = Arrangement.spacedBy(12.dp),
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Button(
-                                onClick = { showExportDialog = true },
-                                shape = RoundedCornerShape(12.dp),
-                                modifier = Modifier.weight(1f)
-                            ) {
-                                Icon(imageVector = Icons.Default.Upload, contentDescription = null)
-                                Spacer(modifier = Modifier.width(6.dp))
-                                Text("Export")
-                            }
-
-                            OutlinedButton(
-                                onClick = { showImportDialog = true },
-                                shape = RoundedCornerShape(12.dp),
-                                modifier = Modifier.weight(1f)
-                            ) {
-                                Icon(imageVector = Icons.Default.Download, contentDescription = null)
-                                Spacer(modifier = Modifier.width(6.dp))
-                                Text("Import")
-                            }
-                        }
-
-                        uiState.backupMessage?.let { msg ->
-                            Spacer(modifier = Modifier.height(12.dp))
-                            Text(
-                                text = msg,
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.primary
-                            )
-                        }
-                    }
-                }
-            }
-
             // Developer & Integrations navigation card
             item {
                 Card(
@@ -263,73 +201,5 @@ fun SettingsScreen(
                 }
             }
         }
-    }
-
-    if (showExportDialog) {
-        var password by remember { mutableStateOf("") }
-        AlertDialog(
-            onDismissRequest = { showExportDialog = false },
-            title = { Text("Export Encrypted Backup") },
-            text = {
-                OutlinedTextField(
-                    value = password,
-                    onValueChange = { password = it },
-                    label = { Text("Encryption Password") },
-                    placeholder = { Text("Enter a strong password") },
-                    singleLine = true
-                )
-            },
-            confirmButton = {
-                Button(
-                    onClick = {
-                        if (password.isNotBlank()) {
-                            onExportBackup(password)
-                            showExportDialog = false
-                        }
-                    }
-                ) {
-                    Text("Export Now")
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { showExportDialog = false }) {
-                    Text("Cancel")
-                }
-            }
-        )
-    }
-
-    if (showImportDialog) {
-        var password by remember { mutableStateOf("") }
-        AlertDialog(
-            onDismissRequest = { showImportDialog = false },
-            title = { Text("Import Encrypted Backup") },
-            text = {
-                OutlinedTextField(
-                    value = password,
-                    onValueChange = { password = it },
-                    label = { Text("Backup Password") },
-                    placeholder = { Text("Password used when exporting") },
-                    singleLine = true
-                )
-            },
-            confirmButton = {
-                Button(
-                    onClick = {
-                        if (password.isNotBlank()) {
-                            onImportBackup(password)
-                            showImportDialog = false
-                        }
-                    }
-                ) {
-                    Text("Decrypt & Import")
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { showImportDialog = false }) {
-                    Text("Cancel")
-                }
-            }
-        )
     }
 }
