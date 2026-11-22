@@ -66,11 +66,7 @@ class AlarmApplication : Application() {
 
         AlarmNotificationChannels.createChannels(this)
 
-        database = Room.databaseBuilder(
-            applicationContext,
-            AlarmDatabase::class.java,
-            "openalarm.db"
-        ).fallbackToDestructiveMigration().build()
+        database = AlarmDatabase.getInstance(this)
 
         alarmRepository = AlarmRepositoryImpl(database.alarmDao())
         sleepRepository = SleepRepositoryImpl(database.sleepSessionDao())

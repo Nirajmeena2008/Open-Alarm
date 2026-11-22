@@ -95,8 +95,7 @@ public final class WebhookDao_Impl implements WebhookDao {
   }
 
   @Override
-  public Object upsertWebhook(final WebhookEntity webhook,
-      final Continuation<? super Unit> $completion) {
+  public Object upsertWebhook(final WebhookEntity webhook, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -110,11 +109,11 @@ public final class WebhookDao_Impl implements WebhookDao {
           __db.endTransaction();
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override
-  public Object deleteWebhookById(final String id, final Continuation<? super Unit> $completion) {
+  public Object deleteWebhookById(final String id, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -139,7 +138,7 @@ public final class WebhookDao_Impl implements WebhookDao {
           __preparedStmtOfDeleteWebhookById.release(_stmt);
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override

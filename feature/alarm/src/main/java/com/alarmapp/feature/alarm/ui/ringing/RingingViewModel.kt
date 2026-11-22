@@ -226,7 +226,11 @@ class RingingViewModel(
     }
 
     fun snooze() {
-        val alarm = _uiState.value.alarm ?: return
+        val alarm = _uiState.value.alarm
+        if (alarm == null) {
+            _uiState.update { it.copy(isSnoozed = true) }
+            return
+        }
         viewModelScope.launch {
             val result = snoozeAlarmUseCase(alarm.id)
             if (result is SnoozeAlarmUseCase.Result.Snoozed) {
@@ -237,7 +241,11 @@ class RingingViewModel(
     }
 
     fun dismiss() {
-        val alarm = _uiState.value.alarm ?: return
+        val alarm = _uiState.value.alarm
+        if (alarm == null) {
+            _uiState.update { it.copy(isDismissed = true) }
+            return
+        }
         viewModelScope.launch {
             dismissAlarmUseCase(alarm.id)
             val updated = alarmRepository.getAlarm(alarm.id)

@@ -204,7 +204,7 @@ public final class AlarmDao_Impl implements AlarmDao {
   }
 
   @Override
-  public Object upsertAlarm(final AlarmEntity alarm, final Continuation<? super Unit> $completion) {
+  public Object upsertAlarm(final AlarmEntity alarm, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -218,11 +218,11 @@ public final class AlarmDao_Impl implements AlarmDao {
           __db.endTransaction();
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override
-  public Object deleteAlarm(final AlarmEntity alarm, final Continuation<? super Unit> $completion) {
+  public Object deleteAlarm(final AlarmEntity alarm, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -236,11 +236,11 @@ public final class AlarmDao_Impl implements AlarmDao {
           __db.endTransaction();
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override
-  public Object deleteAlarmById(final String id, final Continuation<? super Unit> $completion) {
+  public Object deleteAlarmById(final String id, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -265,12 +265,12 @@ public final class AlarmDao_Impl implements AlarmDao {
           __preparedStmtOfDeleteAlarmById.release(_stmt);
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override
   public Object updateAlarmEnabled(final String id, final boolean isEnabled,
-      final Continuation<? super Unit> $completion) {
+      final Continuation<? super Unit> arg2) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -298,12 +298,12 @@ public final class AlarmDao_Impl implements AlarmDao {
           __preparedStmtOfUpdateAlarmEnabled.release(_stmt);
         }
       }
-    }, $completion);
+    }, arg2);
   }
 
   @Override
   public Object updateNextTrigger(final String id, final Long nextTrigger,
-      final Continuation<? super Unit> $completion) {
+      final Continuation<? super Unit> arg2) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -334,12 +334,12 @@ public final class AlarmDao_Impl implements AlarmDao {
           __preparedStmtOfUpdateNextTrigger.release(_stmt);
         }
       }
-    }, $completion);
+    }, arg2);
   }
 
   @Override
   public Object updateSnoozeState(final String id, final int snoozeCount, final Long nextTrigger,
-      final Continuation<? super Unit> $completion) {
+      final Continuation<? super Unit> arg3) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -372,7 +372,7 @@ public final class AlarmDao_Impl implements AlarmDao {
           __preparedStmtOfUpdateSnoozeState.release(_stmt);
         }
       }
-    }, $completion);
+    }, arg3);
   }
 
   @Override
@@ -856,7 +856,7 @@ public final class AlarmDao_Impl implements AlarmDao {
   }
 
   @Override
-  public Object getAlarm(final String id, final Continuation<? super AlarmEntity> $completion) {
+  public Object getAlarm(final String id, final Continuation<? super AlarmEntity> arg1) {
     final String _sql = "SELECT * FROM alarms WHERE id = ? LIMIT 1";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
@@ -1013,7 +1013,7 @@ public final class AlarmDao_Impl implements AlarmDao {
           _statement.release();
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @NonNull

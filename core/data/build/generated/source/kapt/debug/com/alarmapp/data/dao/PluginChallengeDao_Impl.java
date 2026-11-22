@@ -86,7 +86,7 @@ public final class PluginChallengeDao_Impl implements PluginChallengeDao {
 
   @Override
   public Object upsertPlugin(final PluginChallengeEntity plugin,
-      final Continuation<? super Unit> $completion) {
+      final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -100,12 +100,11 @@ public final class PluginChallengeDao_Impl implements PluginChallengeDao {
           __db.endTransaction();
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override
-  public Object deletePluginById(final String pluginId,
-      final Continuation<? super Unit> $completion) {
+  public Object deletePluginById(final String pluginId, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -130,7 +129,7 @@ public final class PluginChallengeDao_Impl implements PluginChallengeDao {
           __preparedStmtOfDeletePluginById.release(_stmt);
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override

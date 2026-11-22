@@ -6,10 +6,12 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.os.PowerManager
 import com.alarmapp.domain.model.Alarm
 import com.alarmapp.domain.model.AlarmId
 import com.alarmapp.domain.repository.AlarmRepository
 import com.alarmapp.domain.util.NextOccurrenceCalculator
+import com.alarmapp.platform.notification.AlarmNotificationManagerImpl
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -99,6 +101,7 @@ class AlarmSchedulerImpl(
         val showIntent = Intent().apply {
             setPackage(context.packageName)
             action = ACTION_ALARM_RINGING
+            setClassName(context.packageName, "com.alarmapp.feature.alarm.ui.ringing.RingingActivity")
             putExtra(EXTRA_ALARM_ID, alarmId.value)
         }
         return PendingIntent.getActivity(
@@ -120,14 +123,45 @@ class AlarmBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val alarmId = intent.getStringExtra(AlarmSchedulerImpl.EXTRA_ALARM_ID) ?: return
 
-        // Launch full-screen ringing activity
+        // 1. Wake the CPU briefly so device stays awake during transition
+        val powerManager = context.getSystemService(Context.POWER_SERVICE) as? PowerManager
+        val wakeLock = powerManager?.newWakeLock(
+            PowerManager.PARTIAL_WAKE_LOCK or PowerManager.ACQUIRE_CAUSES_WAKEUP,
+            "openalarm:ringing_wakelock"
+        )
+        wakeLock?.acquire(10 * 1000L)
+
+        // 2. Post high-priority notification with full-screen intent
+        val pendingResult = goAsync()
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val db = com.alarmapp.data.database.AlarmDatabase.getInstance(context)
+                val repo = com.alarmapp.data.repository.AlarmRepositoryImpl(db.alarmDao())
+                val alarm = repo.getAlarm(AlarmId(alarmId))
+                if (alarm != null) {
+                    val notificationManager = AlarmNotificationManagerImpl(context)
+                    notificationManager.showRingingNotification(alarm)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            } finally {
+                pendingResult.finish()
+            }
+        }
+
+        // 3. Launch full-screen ringing activity directly
         val ringIntent = Intent().apply {
             setPackage(context.packageName)
             action = AlarmSchedulerImpl.ACTION_ALARM_RINGING
+            setClassName(context.packageName, "com.alarmapp.feature.alarm.ui.ringing.RingingActivity")
             putExtra(AlarmSchedulerImpl.EXTRA_ALARM_ID, alarmId)
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NO_USER_ACTION
         }
-        context.startActivity(ringIntent)
+        try {
+            context.startActivity(ringIntent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
 

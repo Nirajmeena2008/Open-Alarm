@@ -58,8 +58,7 @@ public final class SettingsDao_Impl implements SettingsDao {
   }
 
   @Override
-  public Object setSetting(final SettingEntity setting,
-      final Continuation<? super Unit> $completion) {
+  public Object setSetting(final SettingEntity setting, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -73,7 +72,7 @@ public final class SettingsDao_Impl implements SettingsDao {
           __db.endTransaction();
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override

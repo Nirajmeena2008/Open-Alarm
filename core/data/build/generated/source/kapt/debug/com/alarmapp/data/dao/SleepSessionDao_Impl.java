@@ -103,7 +103,7 @@ public final class SleepSessionDao_Impl implements SleepSessionDao {
 
   @Override
   public Object upsertSession(final SleepSessionEntity session,
-      final Continuation<? super Unit> $completion) {
+      final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -117,11 +117,11 @@ public final class SleepSessionDao_Impl implements SleepSessionDao {
           __db.endTransaction();
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override
-  public Object deleteSessionById(final String id, final Continuation<? super Unit> $completion) {
+  public Object deleteSessionById(final String id, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -146,7 +146,7 @@ public final class SleepSessionDao_Impl implements SleepSessionDao {
           __preparedStmtOfDeleteSessionById.release(_stmt);
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override

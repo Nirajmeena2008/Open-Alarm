@@ -5,9 +5,9 @@
 5    <uses-sdk android:minSdkVersion="24" />
 6
 7    <application>
-7-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:4:5-14:19
+7-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:4:5-19:19
 8        <activity
-8-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:5:9-13:80
+8-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:5:9-18:20
 9            android:name="com.alarmapp.feature.alarm.ui.ringing.RingingActivity"
 9-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:6:13-55
 10            android:excludeFromRecents="true"
@@ -22,8 +22,19 @@
 14-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:11:13-42
 15            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
 15-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:13:13-77
-16            android:turnScreenOn="true" />
+16            android:turnScreenOn="true" >
 16-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:12:13-40
-17    </application>
-18
-19</manifest>
+17            <intent-filter>
+17-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:14:13-17:29
+18                <action android:name="com.alarmapp.action.ALARM_RINGING" />
+18-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:15:17-76
+18-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:15:25-73
+19
+20                <category android:name="android.intent.category.DEFAULT" />
+20-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:16:17-76
+20-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:16:27-73
+21            </intent-filter>
+22        </activity>
+23    </application>
+24
+25</manifest>

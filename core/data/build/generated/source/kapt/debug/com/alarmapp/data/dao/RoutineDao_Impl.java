@@ -83,8 +83,7 @@ public final class RoutineDao_Impl implements RoutineDao {
   }
 
   @Override
-  public Object upsertRoutine(final RoutineEntity routine,
-      final Continuation<? super Unit> $completion) {
+  public Object upsertRoutine(final RoutineEntity routine, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -98,11 +97,11 @@ public final class RoutineDao_Impl implements RoutineDao {
           __db.endTransaction();
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override
-  public Object deleteRoutineById(final String id, final Continuation<? super Unit> $completion) {
+  public Object deleteRoutineById(final String id, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -127,7 +126,7 @@ public final class RoutineDao_Impl implements RoutineDao {
           __preparedStmtOfDeleteRoutineById.release(_stmt);
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override

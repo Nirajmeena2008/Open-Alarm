@@ -67,6 +67,7 @@ class AlarmNotificationManagerImpl(private val context: Context) : AlarmNotifica
         val fullScreenIntent = Intent().apply {
             setPackage(context.packageName)
             action = AlarmSchedulerImpl.ACTION_ALARM_RINGING
+            setClassName(context.packageName, "com.alarmapp.feature.alarm.ui.ringing.RingingActivity")
             putExtra(AlarmSchedulerImpl.EXTRA_ALARM_ID, alarm.id.value)
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         }
@@ -85,15 +86,24 @@ class AlarmNotificationManagerImpl(private val context: Context) : AlarmNotifica
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .setFullScreenIntent(fullScreenPendingIntent, true)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .setOngoing(true)
             .setAutoCancel(false)
             .build()
 
-        NotificationManagerCompat.from(context).notify(alarm.id.value.hashCode(), notification)
+        try {
+            NotificationManagerCompat.from(context).notify(alarm.id.value.hashCode(), notification)
+        } catch (e: SecurityException) {
+            e.printStackTrace()
+        }
     }
 
     override fun dismissRingingNotification(alarmId: String) {
-        NotificationManagerCompat.from(context).cancel(alarmId.hashCode())
+        try {
+            NotificationManagerCompat.from(context).cancel(alarmId.hashCode())
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     override fun showBedtimeReminder(reminderText: String) {
@@ -104,6 +114,10 @@ class AlarmNotificationManagerImpl(private val context: Context) : AlarmNotifica
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
 
-        NotificationManagerCompat.from(context).notify(9999, notification)
+        try {
+            NotificationManagerCompat.from(context).notify(9999, notification)
+        } catch (e: SecurityException) {
+            e.printStackTrace()
+        }
     }
 }

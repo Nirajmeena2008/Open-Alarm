@@ -41,7 +41,16 @@ abstract class AlarmDatabase : RoomDatabase() {
     abstract fun pluginChallengeDao(): PluginChallengeDao
 
     companion object {
-        const val DATABASE_NAME = "alarm_app.db"
+        const val DATABASE_NAME = "openalarm.db"
+
+        @Volatile
+        private var INSTANCE: AlarmDatabase? = null
+
+        fun getInstance(context: Context): AlarmDatabase {
+            return INSTANCE ?: synchronized(this) {
+                INSTANCE ?: create(context.applicationContext).also { INSTANCE = it }
+            }
+        }
 
         fun create(context: Context, inMemory: Boolean = false): AlarmDatabase {
             val builder = if (inMemory) {

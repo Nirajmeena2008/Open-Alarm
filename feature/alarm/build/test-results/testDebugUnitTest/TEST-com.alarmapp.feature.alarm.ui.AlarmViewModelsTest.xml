@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.alarmapp.feature.alarm.ui.AlarmViewModelsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-22T09:38:31" hostname="bravo-15" time="0.745">
+<testsuite name="com.alarmapp.feature.alarm.ui.AlarmViewModelsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-22T09:59:53" hostname="bravo-15" time="0.652">
   <properties/>
-  <testcase name="AlarmEditorViewModel saves new alarm()" classname="com.alarmapp.feature.alarm.ui.AlarmViewModelsTest" time="0.6"/>
-  <testcase name="toggleAlarm disables alarm when toggled false()" classname="com.alarmapp.feature.alarm.ui.AlarmViewModelsTest" time="0.122"/>
-  <testcase name="AlarmEditorViewModel sets and persists custom ringtone()" classname="com.alarmapp.feature.alarm.ui.AlarmViewModelsTest" time="0.017"/>
+  <testcase name="AlarmEditorViewModel saves new alarm()" classname="com.alarmapp.feature.alarm.ui.AlarmViewModelsTest" time="0.548"/>
+  <testcase name="toggleAlarm disables alarm when toggled false()" classname="com.alarmapp.feature.alarm.ui.AlarmViewModelsTest" time="0.089"/>
+  <testcase name="AlarmEditorViewModel sets and persists custom ringtone()" classname="com.alarmapp.feature.alarm.ui.AlarmViewModelsTest" time="0.01"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
