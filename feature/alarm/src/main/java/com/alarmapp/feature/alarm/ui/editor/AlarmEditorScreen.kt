@@ -1,5 +1,9 @@
 package com.alarmapp.feature.alarm.ui.editor
 
+import android.net.Uri
+import android.provider.OpenableColumns
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -9,16 +13,20 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.AudioFile
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.alarmapp.domain.model.*
+import java.io.File
+import java.io.FileOutputStream
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -27,6 +35,7 @@ fun AlarmEditorScreen(
     onTimeChange: (Int, Int) -> Unit,
     onToggleDay: (DayOfWeek) -> Unit,
     onLabelChange: (String) -> Unit,
+    onRingtoneChange: (RingtoneSource) -> Unit = {},
     onChallengeChange: (ChallengeConfig?) -> Unit,
     onVolumeRampChange: (VolumeRamp?) -> Unit,
     onVibrationChange: (VibrationPattern) -> Unit,
@@ -36,6 +45,41 @@ fun AlarmEditorScreen(
     modifier: Modifier = Modifier
 ) {
     var showTimePicker by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+
+    val audioPickerLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        if (uri != null) {
+            val contentResolver = context.contentResolver
+            var displayName = "Custom Tone"
+            contentResolver.query(uri, null, null, null, null)?.use { cursor ->
+                if (cursor.moveToFirst()) {
+                    val nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                    if (nameIndex != -1) {
+                        val name = cursor.getString(nameIndex)
+                        if (!name.isNullOrBlank()) {
+                            displayName = name
+                        }
+                    }
+                }
+            }
+
+            try {
+                val ringtonesDir = File(context.filesDir, "custom_ringtones").apply { mkdirs() }
+                val safeFileName = displayName.replace("[^a-zA-Z0-9._-]".toRegex(), "_")
+                val destFile = File(ringtonesDir, safeFileName)
+                contentResolver.openInputStream(uri)?.use { input ->
+                    FileOutputStream(destFile).use { output ->
+                        input.copyTo(output)
+                    }
+                }
+                onRingtoneChange(RingtoneSource.File(title = displayName, path = destFile.absolutePath))
+            } catch (_: Exception) {
+                onRingtoneChange(RingtoneSource.File(title = displayName, path = uri.toString()))
+            }
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -151,6 +195,88 @@ fun AlarmEditorScreen(
                 shape = RoundedCornerShape(16.dp),
                 modifier = Modifier.fillMaxWidth()
             )
+
+            // Alarm Ringtone
+            Card(
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text(
+                        text = "Alarm Tone",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    // Option 1: Default
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onRingtoneChange(RingtoneSource.Default) }
+                            .padding(vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        RadioButton(
+                            selected = state.ringtone is RingtoneSource.Default,
+                            onClick = { onRingtoneChange(RingtoneSource.Default) }
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(text = "Default System Alarm", style = MaterialTheme.typography.bodyMedium)
+                    }
+
+                    // Option 2: Custom from device
+                    val isCustom = state.ringtone is RingtoneSource.File
+                    val customTitle = (state.ringtone as? RingtoneSource.File)?.title ?: "Choose audio file from device..."
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { audioPickerLauncher.launch("audio/*") }
+                            .padding(vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        RadioButton(
+                            selected = isCustom,
+                            onClick = { audioPickerLauncher.launch("audio/*") }
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(text = "Custom Tone from Device", style = MaterialTheme.typography.bodyMedium)
+                            if (isCustom) {
+                                Text(
+                                    text = customTitle,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.primary
+                                )
+                            }
+                        }
+                        IconButton(onClick = { audioPickerLauncher.launch("audio/*") }) {
+                            Icon(
+                                imageVector = Icons.Default.AudioFile,
+                                contentDescription = "Select tone",
+                                tint = MaterialTheme.colorScheme.primary
+                            )
+                        }
+                    }
+
+                    // Option 3: Silent
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onRingtoneChange(RingtoneSource.Silent) }
+                            .padding(vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        RadioButton(
+                            selected = state.ringtone is RingtoneSource.Silent,
+                            onClick = { onRingtoneChange(RingtoneSource.Silent) }
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(text = "Silent (Vibrate only)", style = MaterialTheme.typography.bodyMedium)
+                    }
+                }
+            }
 
             // Wake-up Challenge
             Card(

@@ -143,6 +143,7 @@ class MainActivity : ComponentActivity() {
                                 onTimeChange = { h, m -> editorViewModel.setTime(h, m) },
                                 onToggleDay = { day -> editorViewModel.toggleDay(day) },
                                 onLabelChange = { l -> editorViewModel.setLabel(l) },
+                                onRingtoneChange = { r -> editorViewModel.setRingtone(r) },
                                 onChallengeChange = { c -> editorViewModel.setChallenge(c) },
                                 onVolumeRampChange = { r -> editorViewModel.setVolumeRamp(r) },
                                 onVibrationChange = { v -> editorViewModel.setVibration(v) },

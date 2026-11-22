@@ -29,14 +29,6 @@ class RingtonePlayerImpl(private val context: Context) : RingtonePlayer {
 
         if (alarm.ringtone is RingtoneSource.Silent) return
 
-        val uri = when (val source = alarm.ringtone) {
-            is RingtoneSource.Default -> RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
-                ?: RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
-            is RingtoneSource.System -> Uri.parse(source.uri)
-            is RingtoneSource.File -> Uri.parse(source.path)
-            is RingtoneSource.Silent -> return
-        }
-
         val player = MediaPlayer().apply {
             setAudioAttributes(
                 AudioAttributes.Builder()
@@ -44,7 +36,23 @@ class RingtonePlayerImpl(private val context: Context) : RingtonePlayer {
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                     .build()
             )
-            setDataSource(context, uri)
+            when (val source = alarm.ringtone) {
+                is RingtoneSource.File -> {
+                    val file = java.io.File(source.path)
+                    if (file.exists()) {
+                        setDataSource(file.absolutePath)
+                    } else {
+                        setDataSource(context, Uri.parse(source.path))
+                    }
+                }
+                is RingtoneSource.System -> setDataSource(context, Uri.parse(source.uri))
+                is RingtoneSource.Default -> {
+                    val defaultUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
+                        ?: RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
+                    setDataSource(context, defaultUri)
+                }
+                is RingtoneSource.Silent -> return
+            }
             isLooping = true
             prepare()
         }

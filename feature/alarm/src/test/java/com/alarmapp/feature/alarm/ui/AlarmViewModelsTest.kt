@@ -96,4 +96,34 @@ class AlarmViewModelsTest {
         assertThat(saved).isTrue()
         coVerify { repository.upsertAlarm(match { it.label == "Morning Run" && it.time == LocalTime(6, 45) }) }
     }
+
+    @Test
+    fun `AlarmEditorViewModel sets and persists custom ringtone`() = runTest {
+        val saveAlarmUseCase = SaveAlarmUseCase(repository)
+        val viewModel = AlarmEditorViewModel(repository, saveAlarmUseCase, scheduler)
+
+        val customTone = com.alarmapp.domain.model.RingtoneSource.File(
+            title = "Morning Birds",
+            path = "/data/user/0/files/birds.mp3"
+        )
+        viewModel.setRingtone(customTone)
+
+        assertThat(viewModel.state.value.ringtone).isEqualTo(customTone)
+
+        coEvery { repository.upsertAlarm(any()) } returns AlarmId("gen-2")
+        coEvery { repository.getAlarm(any()) } returns Alarm(
+            id = AlarmId("gen-2"),
+            time = LocalTime(7, 0),
+            ringtone = customTone,
+            createdAt = Instant.parse("2026-11-22T00:00:00Z"),
+            updatedAt = Instant.parse("2026-11-22T00:00:00Z")
+        )
+
+        var saved = false
+        viewModel.saveAlarm { saved = true }
+        testScheduler.advanceUntilIdle()
+
+        assertThat(saved).isTrue()
+        coVerify { repository.upsertAlarm(match { it.ringtone == customTone }) }
+    }
 }
