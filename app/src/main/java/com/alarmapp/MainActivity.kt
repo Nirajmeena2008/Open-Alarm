@@ -67,7 +67,6 @@ class MainActivity : ComponentActivity() {
                 )
 
                 val showBottomBar = currentRoute in listOf(
-                    Screen.Alarms.route,
                     Screen.Sleep.route,
                     Screen.Settings.route
                 )
@@ -122,7 +121,10 @@ class MainActivity : ComponentActivity() {
                                 onToggleAlarm = { id, enabled -> listViewModel.toggleAlarm(id, enabled) },
                                 onDeleteAlarm = { id -> listViewModel.deleteAlarm(id) },
                                 onEditAlarm = { id -> navController.navigate("editor/$id") },
-                                onAddAlarm = { navController.navigate("editor/new") }
+                                onAddAlarm = { navController.navigate("editor/new") },
+                                onCalendarClick = { navController.navigate(Screen.Sleep.route) },
+                                onNavigateToSettings = { navController.navigate(Screen.Settings.route) },
+                                onNavigateToDeveloper = { navController.navigate(Screen.Developer.route) }
                             )
                         }
 
