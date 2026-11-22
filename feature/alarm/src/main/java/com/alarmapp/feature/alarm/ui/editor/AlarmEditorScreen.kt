@@ -57,12 +57,14 @@ fun AlarmEditorScreen(
     onVibrationChange: (VibrationPattern) -> Unit,
     onSnoozeDurationChange: (Int) -> Unit,
     onSave: () -> Unit,
+    onDelete: () -> Unit = {},
     onBack: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     var screenMode by remember { mutableStateOf(EditorScreenMode.CHOOSE_TIME) }
     var showSoundDialog by remember { mutableStateOf(false) }
     var showRepeatDialog by remember { mutableStateOf(false) }
+    var showDeleteDialog by remember { mutableStateOf(false) }
     val context = LocalContext.current
 
     val audioPickerLauncher = rememberLauncherForActivityResult(
@@ -212,7 +214,9 @@ fun AlarmEditorScreen(
                                 onSnoozeDurationChange(next)
                             },
                             onOpenRepeat = { showRepeatDialog = true },
-                            onSwitchToGame = { screenMode = EditorScreenMode.CHOOSE_GAME }
+                            onSwitchToGame = { screenMode = EditorScreenMode.CHOOSE_GAME },
+                            isEditingExisting = state.alarmId != null,
+                            onDeleteClick = { showDeleteDialog = true }
                         )
                     }
                     EditorScreenMode.CHOOSE_GAME -> {
@@ -340,6 +344,30 @@ fun AlarmEditorScreen(
             }
         )
     }
+
+    // Delete Confirmation Dialog
+    if (showDeleteDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteDialog = false },
+            title = { Text("Delete Alarm", fontWeight = FontWeight.Bold) },
+            text = { Text("Are you sure you want to delete this alarm?") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showDeleteDialog = false
+                        onDelete()
+                    }
+                ) {
+                    Text("Delete", color = MinimalRedAccent, fontWeight = FontWeight.Bold)
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
 }
 
 // ---------------------------------------------------------
@@ -360,6 +388,8 @@ fun ChooseTimeScreen(
     onCycleSnooze: () -> Unit,
     onOpenRepeat: () -> Unit,
     onSwitchToGame: () -> Unit,
+    isEditingExisting: Boolean = false,
+    onDeleteClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -529,6 +559,38 @@ fun ChooseTimeScreen(
                     contentDescription = null,
                     tint = MinimalBlack
                 )
+            }
+        }
+
+        if (isEditingExisting) {
+            Spacer(modifier = Modifier.height(8.dp))
+            Surface(
+                onClick = onDeleteClick,
+                shape = RoundedCornerShape(16.dp),
+                color = Color(0xFFFDE8E8),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp)
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.DeleteOutline,
+                        contentDescription = "Delete Alarm",
+                        tint = MinimalRedAccent,
+                        modifier = Modifier.size(20.dp)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = "Delete Alarm",
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = MinimalRedAccent
+                    )
+                }
             }
         }
 

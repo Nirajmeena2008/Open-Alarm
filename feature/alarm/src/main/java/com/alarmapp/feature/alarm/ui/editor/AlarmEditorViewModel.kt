@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alarmapp.domain.model.*
 import com.alarmapp.domain.repository.AlarmRepository
+import com.alarmapp.domain.usecase.alarm.DeleteAlarmUseCase
 import com.alarmapp.domain.usecase.alarm.SaveAlarmUseCase
 import com.alarmapp.platform.alarm.AlarmScheduler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,11 +32,21 @@ data class AlarmEditorState(
 class AlarmEditorViewModel(
     private val alarmRepository: AlarmRepository,
     private val saveAlarmUseCase: SaveAlarmUseCase,
-    private val alarmScheduler: AlarmScheduler
+    private val alarmScheduler: AlarmScheduler,
+    private val deleteAlarmUseCase: DeleteAlarmUseCase? = null
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(AlarmEditorState())
     val state: StateFlow<AlarmEditorState> = _state.asStateFlow()
+
+    fun deleteAlarm(onDeleted: () -> Unit) {
+        val id = _state.value.alarmId ?: return
+        viewModelScope.launch {
+            alarmScheduler.cancel(id)
+            deleteAlarmUseCase?.invoke(id)
+            onDeleted()
+        }
+    }
 
     fun loadAlarm(alarmIdString: String?) {
         if (alarmIdString == null || alarmIdString == "new") {

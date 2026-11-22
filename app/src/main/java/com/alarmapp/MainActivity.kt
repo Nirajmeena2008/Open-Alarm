@@ -160,7 +160,8 @@ class MainActivity : ComponentActivity() {
                                 AlarmEditorViewModel(
                                     app.alarmRepository,
                                     app.saveAlarmUseCase,
-                                    app.alarmScheduler
+                                    app.alarmScheduler,
+                                    app.deleteAlarmUseCase
                                 )
                             }
                             LaunchedEffect(alarmId) {
@@ -180,6 +181,11 @@ class MainActivity : ComponentActivity() {
                                 onSnoozeDurationChange = { d -> editorViewModel.setSnoozeDuration(d) },
                                 onSave = {
                                     editorViewModel.saveAlarm {
+                                        navController.popBackStack()
+                                    }
+                                },
+                                onDelete = {
+                                    editorViewModel.deleteAlarm {
                                         navController.popBackStack()
                                     }
                                 },

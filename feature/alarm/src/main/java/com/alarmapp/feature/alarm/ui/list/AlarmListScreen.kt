@@ -14,6 +14,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Stop
@@ -643,20 +644,42 @@ fun MinimalAlarmCard(
                     )
                 }
 
-                // Play / Toggle Button (Triangle Play Icon)
-                Surface(
-                    onClick = { onToggle(!alarm.isEnabled) },
-                    shape = CircleShape,
-                    color = if (alarm.isEnabled) MinimalBlack else Color(0xFFDDDDDF),
-                    modifier = Modifier.size(38.dp)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    Box(contentAlignment = Alignment.Center) {
-                        Icon(
-                            imageVector = if (alarm.isEnabled) Icons.Default.PlayArrow else Icons.Default.Stop,
-                            contentDescription = if (alarm.isEnabled) "Disable" else "Enable",
-                            tint = if (alarm.isEnabled) MinimalWhite else MinimalTextMuted,
-                            modifier = Modifier.size(20.dp)
-                        )
+                    // Visible Delete Button
+                    Surface(
+                        onClick = { showDeleteConfirm = true },
+                        shape = CircleShape,
+                        color = Color(0xFFF3F3F5),
+                        modifier = Modifier.size(36.dp)
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Icon(
+                                imageVector = Icons.Default.DeleteOutline,
+                                contentDescription = "Delete Alarm",
+                                tint = Color(0xFF8E8E93),
+                                modifier = Modifier.size(18.dp)
+                            )
+                        }
+                    }
+
+                    // Play / Toggle Button (Triangle Play Icon)
+                    Surface(
+                        onClick = { onToggle(!alarm.isEnabled) },
+                        shape = CircleShape,
+                        color = if (alarm.isEnabled) MinimalBlack else Color(0xFFDDDDDF),
+                        modifier = Modifier.size(38.dp)
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Icon(
+                                imageVector = if (alarm.isEnabled) Icons.Default.PlayArrow else Icons.Default.Stop,
+                                contentDescription = if (alarm.isEnabled) "Disable" else "Enable",
+                                tint = if (alarm.isEnabled) MinimalWhite else MinimalTextMuted,
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
                     }
                 }
             }
