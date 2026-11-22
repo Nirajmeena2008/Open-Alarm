@@ -65,6 +65,7 @@ fun AlarmEditorScreen(
     var showSoundDialog by remember { mutableStateOf(false) }
     var showRepeatDialog by remember { mutableStateOf(false) }
     var showDeleteDialog by remember { mutableStateOf(false) }
+    var showGradualDialog by remember { mutableStateOf(false) }
     val context = LocalContext.current
 
     val audioPickerLauncher = rememberLauncherForActivityResult(
@@ -203,7 +204,9 @@ fun AlarmEditorScreen(
                             snoozeMinutes = state.snoozeDurationMinutes,
                             daysOfWeek = state.daysOfWeek,
                             challengeConfig = state.challengeConfig,
+                            volumeRamp = state.volumeRamp,
                             onOpenSound = { showSoundDialog = true },
+                            onOpenGradual = { showGradualDialog = true },
                             onCycleSnooze = {
                                 val next = when (state.snoozeDurationMinutes) {
                                     5 -> 10
@@ -301,6 +304,36 @@ fun AlarmEditorScreen(
                         Spacer(modifier = Modifier.width(12.dp))
                         Text("Silent (Vibrate only)", fontWeight = FontWeight.Medium)
                     }
+
+                    HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
+
+                    // Gradual Volume toggle in Sound dialog
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                showSoundDialog = false
+                                showGradualDialog = true
+                            }
+                            .padding(vertical = 8.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text("Gradual Volume Increase", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+                            Text(
+                                text = if (state.volumeRamp != null) "Increases to 100% over ${state.volumeRamp?.durationSeconds}s" else "Disabled (Immediate full volume)",
+                                fontSize = 12.sp,
+                                color = MinimalTextMuted
+                            )
+                        }
+                        Switch(
+                            checked = state.volumeRamp != null,
+                            onCheckedChange = { enable ->
+                                onVolumeRampChange(if (enable) VolumeRamp(durationSeconds = 60) else null)
+                            }
+                        )
+                    }
                 }
             },
             confirmButton = {
@@ -368,6 +401,57 @@ fun AlarmEditorScreen(
             }
         )
     }
+
+    // Gradual Volume Increase Dialog
+    if (showGradualDialog) {
+        val durations = listOf(
+            0 to "Off (Immediate full volume)",
+            15 to "15 seconds (Quick fade-in)",
+            30 to "30 seconds (Gentle)",
+            60 to "60 seconds (Standard)",
+            120 to "2 minutes (Slow fade-in)"
+        )
+        AlertDialog(
+            onDismissRequest = { showGradualDialog = false },
+            title = { Text("Gradual Volume Increase", fontWeight = FontWeight.Bold) },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(
+                        text = "Alarm sound starts softly at 10% volume and gradually increases to 100% full volume.",
+                        fontSize = 13.sp,
+                        color = MinimalTextMuted
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    durations.forEach { (sec, label) ->
+                        val isSelected = if (sec == 0) state.volumeRamp == null else state.volumeRamp?.durationSeconds == sec
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    if (sec == 0) {
+                                        onVolumeRampChange(null)
+                                    } else {
+                                        onVolumeRampChange(VolumeRamp(durationSeconds = sec))
+                                    }
+                                    showGradualDialog = false
+                                }
+                                .padding(vertical = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            RadioButton(selected = isSelected, onClick = null)
+                            Spacer(modifier = Modifier.width(12.dp))
+                            Text(label, fontSize = 14.sp, fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal)
+                        }
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showGradualDialog = false }) {
+                    Text("Done", fontWeight = FontWeight.Bold, color = MinimalBlack)
+                }
+            }
+        )
+    }
 }
 
 // ---------------------------------------------------------
@@ -384,7 +468,9 @@ fun ChooseTimeScreen(
     snoozeMinutes: Int,
     daysOfWeek: Set<DayOfWeek>,
     challengeConfig: ChallengeConfig?,
+    volumeRamp: VolumeRamp? = VolumeRamp(),
     onOpenSound: () -> Unit,
+    onOpenGradual: () -> Unit = {},
     onCycleSnooze: () -> Unit,
     onOpenRepeat: () -> Unit,
     onSwitchToGame: () -> Unit,
@@ -479,7 +565,7 @@ fun ChooseTimeScreen(
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        // Three Quick Setting Action Cards: Sound, Snooze, Repeat
+        // Four Quick Setting Action Cards: Sound, Gradual, Snooze, Repeat
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -489,8 +575,8 @@ fun ChooseTimeScreen(
         ) {
             // Sound
             val soundText = when (ringtone) {
-                is RingtoneSource.File -> ringtone.title.take(10)
-                is RingtoneSource.System -> ringtone.title.take(10)
+                is RingtoneSource.File -> ringtone.title.take(8)
+                is RingtoneSource.System -> ringtone.title.take(8)
                 is RingtoneSource.Default -> "Wake up"
                 is RingtoneSource.Silent -> "Silent"
             }
@@ -502,11 +588,27 @@ fun ChooseTimeScreen(
                 modifier = Modifier.weight(1f)
             )
 
+            // Gradual Volume Ramp
+            val gradualText = if (volumeRamp == null || volumeRamp.durationSeconds <= 0) {
+                "Off"
+            } else if (volumeRamp.durationSeconds >= 60) {
+                "${volumeRamp.durationSeconds / 60} min"
+            } else {
+                "${volumeRamp.durationSeconds}s"
+            }
+            QuickSettingItem(
+                icon = Icons.Default.VolumeUp,
+                title = "Gradual",
+                subtitle = gradualText,
+                onClick = onOpenGradual,
+                modifier = Modifier.weight(1f)
+            )
+
             // Snooze
             QuickSettingItem(
                 icon = Icons.Default.NotificationsNone,
                 title = "Snooze",
-                subtitle = "Every $snoozeMinutes min",
+                subtitle = "$snoozeMinutes min",
                 onClick = onCycleSnooze,
                 modifier = Modifier.weight(1f)
             )
