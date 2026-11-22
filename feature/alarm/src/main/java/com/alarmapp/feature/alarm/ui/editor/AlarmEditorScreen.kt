@@ -482,352 +482,151 @@ fun ChooseTimeScreen(
     onDeleteClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val isLight = MaterialTheme.colorScheme.background == MinimalBackground
-    val lensColor = if (isLight) Color(0xFFF1F1F4) else MaterialTheme.colorScheme.surface
-
     Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(horizontal = 24.dp),
+        modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // Dual Hourglass Convex Curve Wheels Canvas Container
-        Box(
+        // Dual Convex Wheels with Degree-by-degree "toci" sound and smooth animation
+        CurvedDualWheelTimePicker(
+            hour = hour,
+            minute = minute,
+            onHourChange = onHourChange,
+            onMinuteChange = onMinuteChange,
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f),
-            contentAlignment = Alignment.Center
+                .weight(1f)
+        )
+
+        // Lower Controls Section (Quick Settings + Challenge + Delete)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Curved background silhouette
-            Canvas(modifier = Modifier.fillMaxSize()) {
-                val w = size.width
-                val h = size.height
-                val midX = w / 2f
-                val midY = h / 2f
+            Spacer(modifier = Modifier.height(10.dp))
 
-                // Draw smooth off-white curved lens for Left (Hours)
-                val leftPath = Path().apply {
-                    moveTo(0f, 0f)
-                    lineTo(midX - 20f, 0f)
-                    cubicTo(
-                        midX - 30f, h * 0.25f,
-                        midX - 10f, midY - 60f,
-                        midX - 8f, midY
-                    )
-                    cubicTo(
-                        midX - 10f, midY + 60f,
-                        midX - 30f, h * 0.75f,
-                        midX - 20f, h
-                    )
-                    lineTo(0f, h)
-                    close()
-                }
-                drawPath(leftPath, color = lensColor)
-
-                // Draw smooth off-white curved lens for Right (Minutes)
-                val rightPath = Path().apply {
-                    moveTo(w, 0f)
-                    lineTo(midX + 20f, 0f)
-                    cubicTo(
-                        midX + 30f, h * 0.25f,
-                        midX + 10f, midY - 60f,
-                        midX + 8f, midY
-                    )
-                    cubicTo(
-                        midX + 10f, midY + 60f,
-                        midX + 30f, h * 0.75f,
-                        midX + 20f, h
-                    )
-                    lineTo(w, h)
-                    close()
-                }
-                drawPath(rightPath, color = lensColor)
-            }
-
-            // Dual Columns (Hours & Minutes)
+            // Three Quick Setting Action Items matching UI mockup: Sound, Snooze, Repeat
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 20.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly,
+                    .padding(vertical = 8.dp),
+                horizontalArrangement = Arrangement.SpaceAround,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Left Column: Hours (00..23)
-                HourColumnPicker(
-                    selectedHour = hour,
-                    onSelect = onHourChange,
-                    modifier = Modifier.weight(1f)
-                )
-
-                // Right Column: Minutes (00..59)
-                MinuteColumnPicker(
-                    selectedMinute = minute,
-                    onSelect = onMinuteChange,
-                    modifier = Modifier.weight(1f)
-                )
-            }
-        }
-
-        Spacer(modifier = Modifier.height(12.dp))
-
-        // Four Quick Setting Action Cards: Sound, Gradual, Snooze, Repeat
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 12.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            // Sound
-            val soundText = when (ringtone) {
-                is RingtoneSource.File -> ringtone.title.take(8)
-                is RingtoneSource.System -> ringtone.title.take(8)
-                is RingtoneSource.Default -> "Wake up"
-                is RingtoneSource.Silent -> "Silent"
-            }
-            QuickSettingItem(
-                icon = Icons.Default.MusicNote,
-                title = "Sound",
-                subtitle = soundText,
-                onClick = onOpenSound,
-                modifier = Modifier.weight(1f)
-            )
-
-            // Gradual Volume Ramp
-            val gradualText = if (volumeRamp == null || volumeRamp.durationSeconds <= 0) {
-                "Off"
-            } else if (volumeRamp.durationSeconds >= 60) {
-                "${volumeRamp.durationSeconds / 60} min"
-            } else {
-                "${volumeRamp.durationSeconds}s"
-            }
-            QuickSettingItem(
-                icon = Icons.Default.VolumeUp,
-                title = "Gradual",
-                subtitle = gradualText,
-                onClick = onOpenGradual,
-                modifier = Modifier.weight(1f)
-            )
-
-            // Snooze
-            QuickSettingItem(
-                icon = Icons.Default.NotificationsNone,
-                title = "Snooze",
-                subtitle = "$snoozeMinutes min",
-                onClick = onCycleSnooze,
-                modifier = Modifier.weight(1f)
-            )
-
-            // Repeat
-            val repeatText = if (daysOfWeek.isEmpty()) "No" else "${daysOfWeek.size} days"
-            QuickSettingItem(
-                icon = Icons.Default.Repeat,
-                title = "Repeat",
-                subtitle = repeatText,
-                onClick = onOpenRepeat,
-                modifier = Modifier.weight(1f)
-            )
-        }
-
-        // Challenge Shortcut Button (Navigate to Screen 3)
-        Surface(
-            onClick = onSwitchToGame,
-            shape = RoundedCornerShape(16.dp),
-            color = MaterialTheme.colorScheme.surfaceVariant,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(48.dp)
-        ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        imageVector = Icons.Default.Extension,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier.size(20.dp)
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "Challenge: ${challengeConfig?.let { it::class.simpleName } ?: "None"}",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
+                // Sound
+                val soundText = when (ringtone) {
+                    is RingtoneSource.File -> ringtone.title.take(10)
+                    is RingtoneSource.System -> ringtone.title.take(10)
+                    is RingtoneSource.Default -> "Wake up"
+                    is RingtoneSource.Silent -> "Silent"
                 }
+                QuickSettingItem(
+                    icon = Icons.Default.MusicNote,
+                    title = "Sound",
+                    subtitle = soundText,
+                    onClick = onOpenSound,
+                    modifier = Modifier.weight(1f)
+                )
 
-                Icon(
-                    imageVector = Icons.Default.ChevronRight,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurface
+                // Snooze
+                QuickSettingItem(
+                    icon = Icons.Default.NotificationsNone,
+                    title = "Snooze",
+                    subtitle = "Every $snoozeMinutes min",
+                    onClick = onCycleSnooze,
+                    modifier = Modifier.weight(1f)
+                )
+
+                // Repeat
+                val repeatText = if (daysOfWeek.isEmpty()) "No" else "${daysOfWeek.size} days"
+                QuickSettingItem(
+                    icon = Icons.Default.Repeat,
+                    title = "Repeat",
+                    subtitle = repeatText,
+                    onClick = onOpenRepeat,
+                    modifier = Modifier.weight(1f)
                 )
             }
-        }
 
-        if (isEditingExisting) {
-            Spacer(modifier = Modifier.height(8.dp))
+            // Challenge Shortcut Button
             Surface(
-                onClick = onDeleteClick,
+                onClick = onSwitchToGame,
                 shape = RoundedCornerShape(16.dp),
-                color = Color(0xFFFDE8E8),
+                color = MaterialTheme.colorScheme.surfaceVariant,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(48.dp)
             ) {
                 Row(
-                    modifier = Modifier.fillMaxSize(),
-                    horizontalArrangement = Arrangement.Center,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.Default.Extension,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurface,
+                            modifier = Modifier.size(20.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = "Challenge: ${challengeConfig?.let { it::class.simpleName } ?: "None"}",
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+
                     Icon(
-                        imageVector = Icons.Default.DeleteOutline,
-                        contentDescription = "Delete Alarm",
-                        tint = MinimalRedAccent,
-                        modifier = Modifier.size(20.dp)
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "Delete Alarm",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MinimalRedAccent
+                        imageVector = Icons.Default.ChevronRight,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
             }
-        }
 
-        Spacer(modifier = Modifier.height(8.dp))
-    }
-}
-
-@Composable
-fun HourColumnPicker(
-    selectedHour: Int,
-    onSelect: (Int) -> Unit,
-    modifier: Modifier = Modifier
-) {
-    var dragAccumulator by remember { mutableFloatStateOf(0f) }
-
-    Column(
-        modifier = modifier
-            .fillMaxHeight(0.65f)
-            .pointerInput(selectedHour) {
-                detectVerticalDragGestures { _, dragAmount ->
-                    dragAccumulator += dragAmount
-                    if (dragAccumulator > 40f) {
-                        onSelect((selectedHour - 1 + 24) % 24)
-                        dragAccumulator = 0f
-                    } else if (dragAccumulator < -40f) {
-                        onSelect((selectedHour + 1) % 24)
-                        dragAccumulator = 0f
+            if (isEditingExisting) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Surface(
+                    onClick = onDeleteClick,
+                    shape = RoundedCornerShape(16.dp),
+                    color = Color(0xFFFDE8E8),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(46.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxSize(),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.DeleteOutline,
+                            contentDescription = "Delete Alarm",
+                            tint = MinimalRedAccent,
+                            modifier = Modifier.size(20.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = "Delete Alarm",
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = MinimalRedAccent
+                        )
                     }
                 }
-            },
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceEvenly
-    ) {
-        val offsets = listOf(3, 2, 1, 0, -1, -2, -3)
-
-        offsets.forEach { offset ->
-            val h = (selectedHour + offset + 24) % 24
-            val isCurrent = offset == 0
-            val alpha = when (kotlin.math.abs(offset)) {
-                0 -> 1f
-                1 -> 0.65f
-                2 -> 0.35f
-                else -> 0.18f
             }
 
-            Box(
-                modifier = Modifier
-                    .width(76.dp)
-                    .height(52.dp)
-                    .clip(RoundedCornerShape(14.dp))
-                    .then(
-                        if (isCurrent) Modifier.border(1.5f.dp, MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f), RoundedCornerShape(14.dp))
-                        else Modifier
-                    )
-                    .clickable { onSelect(h) },
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "%02d".format(h),
-                    fontSize = if (isCurrent) 38.sp else 28.sp,
-                    fontWeight = if (isCurrent) FontWeight.Bold else FontWeight.Normal,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = alpha)
-                )
-            }
+            Spacer(modifier = Modifier.height(6.dp))
         }
     }
 }
 
-@Composable
-fun MinuteColumnPicker(
-    selectedMinute: Int,
-    onSelect: (Int) -> Unit,
-    modifier: Modifier = Modifier
-) {
-    var dragAccumulator by remember { mutableFloatStateOf(0f) }
 
-    Column(
-        modifier = modifier
-            .fillMaxHeight(0.65f)
-            .pointerInput(selectedMinute) {
-                detectVerticalDragGestures { _, dragAmount ->
-                    dragAccumulator += dragAmount
-                    if (dragAccumulator > 40f) {
-                        onSelect((selectedMinute - 1 + 60) % 60)
-                        dragAccumulator = 0f
-                    } else if (dragAccumulator < -40f) {
-                        onSelect((selectedMinute + 1) % 60)
-                        dragAccumulator = 0f
-                    }
-                }
-            },
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceEvenly
-    ) {
-        val offsets = listOf(3, 2, 1, 0, -1, -2, -3)
-
-        offsets.forEach { offset ->
-            val m = (selectedMinute + offset + 60) % 60
-            val isCurrent = offset == 0
-            val alpha = when (kotlin.math.abs(offset)) {
-                0 -> 1f
-                1 -> 0.65f
-                2 -> 0.35f
-                else -> 0.18f
-            }
-
-            Box(
-                modifier = Modifier
-                    .width(76.dp)
-                    .height(52.dp)
-                    .clip(RoundedCornerShape(14.dp))
-                    .then(
-                        if (isCurrent) Modifier.border(1.5f.dp, MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f), RoundedCornerShape(14.dp))
-                        else Modifier
-                    )
-                    .clickable { onSelect(m) },
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "%02d".format(m),
-                    fontSize = if (isCurrent) 38.sp else 28.sp,
-                    fontWeight = if (isCurrent) FontWeight.Bold else FontWeight.Normal,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = alpha)
-                )
-            }
-        }
-    }
-}
 
 @Composable
 fun QuickSettingItem(

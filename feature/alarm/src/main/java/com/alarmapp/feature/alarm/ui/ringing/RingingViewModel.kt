@@ -81,6 +81,14 @@ class RingingViewModel(
                 }
             }
         }
+
+        // Safety auto-silence after 10 minutes to prevent battery depletion if left unattended
+        viewModelScope.launch {
+            kotlinx.coroutines.delay(10 * 60 * 1000L)
+            if (!_uiState.value.isDismissed && !_uiState.value.isSnoozed) {
+                snooze()
+            }
+        }
     }
 
     private fun setupChallenge(config: ChallengeConfig?): RingingChallengeState {

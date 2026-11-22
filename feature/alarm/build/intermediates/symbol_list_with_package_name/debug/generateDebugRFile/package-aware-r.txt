@@ -1,1 +1,2 @@
 com.alarmapp.feature.alarm
+raw dial_tick

@@ -51,12 +51,21 @@ class AlarmSchedulerImpl(
         }
 
         // Use AlarmClockInfo for 99.99% reliability through Doze and battery saver
-        val showPendingIntent = createShowPendingIntent(alarm.id)
-        if (showPendingIntent != null) {
-            val clockInfo = AlarmManager.AlarmClockInfo(triggerMillis, showPendingIntent)
-            am.setAlarmClock(clockInfo, pendingIntent)
-        } else {
-            am.setExactAndAllowWhileIdle(
+        try {
+            val showPendingIntent = createShowPendingIntent(alarm.id)
+            if (showPendingIntent != null) {
+                val clockInfo = AlarmManager.AlarmClockInfo(triggerMillis, showPendingIntent)
+                am.setAlarmClock(clockInfo, pendingIntent)
+            } else {
+                am.setExactAndAllowWhileIdle(
+                    AlarmManager.RTC_WAKEUP,
+                    triggerMillis,
+                    pendingIntent
+                )
+            }
+        } catch (e: SecurityException) {
+            // Fallback in case exact alarm permission was revoked by user
+            am.setAndAllowWhileIdle(
                 AlarmManager.RTC_WAKEUP,
                 triggerMillis,
                 pendingIntent
@@ -128,8 +137,14 @@ class AlarmBroadcastReceiver : BroadcastReceiver() {
         val wakeLock = powerManager?.newWakeLock(
             PowerManager.PARTIAL_WAKE_LOCK or PowerManager.ACQUIRE_CAUSES_WAKEUP,
             "openalarm:ringing_wakelock"
-        )
-        wakeLock?.acquire(10 * 1000L)
+        )?.apply {
+            setReferenceCounted(false)
+        }
+        try {
+            wakeLock?.acquire(10 * 1000L)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
         // 2. Post high-priority notification with full-screen intent
         val pendingResult = goAsync()
@@ -175,7 +190,7 @@ class BootReceiver : BroadcastReceiver() {
             val pendingResult = goAsync()
             CoroutineScope(Dispatchers.IO).launch {
                 try {
-                    val db = com.alarmapp.data.database.AlarmDatabase.create(context)
+                    val db = com.alarmapp.data.database.AlarmDatabase.getInstance(context)
                     val repo = com.alarmapp.data.repository.AlarmRepositoryImpl(db.alarmDao())
                     val scheduler = AlarmSchedulerImpl(context, repo)
                     scheduler.rescheduleAll()
@@ -195,7 +210,7 @@ class TimeZoneChangeReceiver : BroadcastReceiver() {
             val pendingResult = goAsync()
             CoroutineScope(Dispatchers.IO).launch {
                 try {
-                    val db = com.alarmapp.data.database.AlarmDatabase.create(context)
+                    val db = com.alarmapp.data.database.AlarmDatabase.getInstance(context)
                     val repo = com.alarmapp.data.repository.AlarmRepositoryImpl(db.alarmDao())
                     val scheduler = AlarmSchedulerImpl(context, repo)
                     scheduler.rescheduleAll()
