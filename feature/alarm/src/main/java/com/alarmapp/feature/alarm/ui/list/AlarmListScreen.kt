@@ -328,65 +328,165 @@ fun AlarmListScreen(
                 colors = CardDefaults.cardColors(containerColor = Color(0xFFEDEDF0)),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(120.dp)
+                    .height(136.dp)
             ) {
-                Canvas(
+                Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(horizontal = 16.dp, vertical = 12.dp)
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                    verticalArrangement = Arrangement.SpaceBetween
                 ) {
-                    val totalMinutes = 24 * 60f
-                    val currentMin = currentTime.hour * 60 + currentTime.minute
-                    val currentRatio = currentMin / totalMinutes
+                    // Top Legend / Context Row
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "24-HOUR TIMELINE",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = MinimalTextMuted,
+                            letterSpacing = 0.5.sp
+                        )
 
-                    // Draw vertical ruler ticks (every 15 min or hour)
-                    val ticks = 72 // 1 tick per 20 min
-                    val spacing = size.width / (ticks - 1)
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            // Current time legend indicator
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Box(
+                                    modifier = Modifier
+                                        .size(7.dp)
+                                        .clip(CircleShape)
+                                        .background(MinimalRedAccent)
+                                )
+                                Spacer(modifier = Modifier.width(4.dp))
+                                Text(
+                                    text = "Now",
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = MinimalBlack
+                                )
+                            }
 
-                    for (i in 0 until ticks) {
-                        val x = i * spacing
-                        val isHour = i % 3 == 0
-                        val isQuarter = i % 6 == 0
-                        val top = when {
-                            isQuarter -> 6f
-                            isHour -> 16f
-                            else -> 28f
+                            // Alarm legend indicator
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Box(
+                                    modifier = Modifier
+                                        .size(7.dp)
+                                        .clip(CircleShape)
+                                        .background(MinimalBlack)
+                                )
+                                Spacer(modifier = Modifier.width(4.dp))
+                                Text(
+                                    text = "Alarm",
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = MinimalBlack
+                                )
+                            }
                         }
-                        val bottom = size.height - top
+                    }
 
+                    // Center Ruler Canvas
+                    Canvas(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(54.dp)
+                    ) {
+                        val totalMinutes = 24 * 60f
+                        val currentMin = currentTime.hour * 60 + currentTime.minute
+                        val currentRatio = currentMin / totalMinutes
+
+                        // Draw ticks for 48 half-hour slots
+                        val ticks = 48
+                        val step = size.width / ticks
+
+                        for (i in 0..ticks) {
+                            val x = i * step
+                            val isSixHour = i % 12 == 0
+                            val isHour = i % 2 == 0
+                            val top = when {
+                                isSixHour -> 0f
+                                isHour -> 8f
+                                else -> 18f
+                            }
+                            val bottom = size.height - top
+
+                            drawLine(
+                                color = if (isSixHour) Color(0xFFAAAAAF) else Color(0xFFCFCFD5),
+                                start = Offset(x, top),
+                                end = Offset(x, bottom),
+                                strokeWidth = if (isSixHour) 1.8f else 1.2f,
+                                cap = StrokeCap.Round
+                            )
+                        }
+
+                        // Draw scheduled alarm lines with pin heads
+                        uiState.alarms.forEach { alarm ->
+                            if (alarm.isEnabled) {
+                                val alarmMin = alarm.time.hour * 60 + alarm.time.minute
+                                val alarmRatio = alarmMin / totalMinutes
+                                val alarmX = size.width * alarmRatio
+
+                                drawLine(
+                                    color = MinimalBlack,
+                                    start = Offset(alarmX, 0f),
+                                    end = Offset(alarmX, size.height),
+                                    strokeWidth = 2.5f,
+                                    cap = StrokeCap.Round
+                                )
+
+                                // Solid black pin head
+                                drawCircle(
+                                    color = MinimalBlack,
+                                    radius = 4.5f,
+                                    center = Offset(alarmX, 4f)
+                                )
+                            }
+                        }
+
+                        // Draw Red needle for current time with precision indicator head
+                        val cursorX = size.width * currentRatio
                         drawLine(
-                            color = Color(0xFFC8C8CE),
-                            start = Offset(x, top),
-                            end = Offset(x, bottom),
-                            strokeWidth = 1.2f,
+                            color = MinimalRedAccent,
+                            start = Offset(cursorX, 0f),
+                            end = Offset(cursorX, size.height),
+                            strokeWidth = 3f,
                             cap = StrokeCap.Round
+                        )
+
+                        // Red pin head with white center dot
+                        drawCircle(
+                            color = MinimalRedAccent,
+                            radius = 5.5f,
+                            center = Offset(cursorX, 4f)
+                        )
+                        drawCircle(
+                            color = Color.White,
+                            radius = 2f,
+                            center = Offset(cursorX, 4f)
                         )
                     }
 
-                    // Draw scheduled alarm lines
-                    uiState.alarms.forEach { alarm ->
-                        if (alarm.isEnabled) {
-                            val alarmMin = alarm.time.hour * 60 + alarm.time.minute
-                            val alarmRatio = alarmMin / totalMinutes
-                            val alarmX = size.width * alarmRatio
-
-                            drawLine(
-                                color = MinimalBlack,
-                                start = Offset(alarmX, 2f),
-                                end = Offset(alarmX, size.height - 2f),
-                                strokeWidth = 2.5f
+                    // Bottom Landmark Hour Labels
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        val landmarks = listOf("12 AM", "6 AM", "12 PM", "6 PM", "12 AM")
+                        landmarks.forEach { label ->
+                            Text(
+                                text = label,
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                color = MinimalTextMuted
                             )
                         }
                     }
-
-                    // Draw Red needle for current time
-                    val cursorX = size.width * currentRatio
-                    drawLine(
-                        color = MinimalRedAccent,
-                        start = Offset(cursorX, 0f),
-                        end = Offset(cursorX, size.height),
-                        strokeWidth = 3f
-                    )
                 }
             }
 
