@@ -111,6 +111,8 @@ color glance_switch_thumb_disabled_material_light
 color glance_switch_thumb_normal_material_dark
 color glance_switch_thumb_normal_material_light
 color glance_white_disabled_material_anim
+color ic_launcher_background
+color ic_launcher_light_background
 color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
@@ -2090,6 +2092,12 @@ layout size_match_match
 layout size_match_wrap
 layout size_wrap_match
 layout size_wrap_wrap
+mipmap ic_launcher
+mipmap ic_launcher_foreground
+mipmap ic_launcher_light
+mipmap ic_launcher_light_foreground
+mipmap ic_launcher_light_round
+mipmap ic_launcher_round
 raw glance_appwidget_keep
 string androidx_startup
 string app_name

@@ -1,6 +1,142 @@
 [
     {
-        "merged": "com.alarmapp-debug-4:/xml_alarm_widget_info.xml.flat",
-        "source": "com.alarmapp-main-6:/xml/alarm_widget_info.xml"
+        "merged": "com.alarmapp-debug-67:/mipmap-mdpi_ic_launcher_light.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-mdpi/ic_launcher_light.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-mdpi_ic_launcher_light_round.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-mdpi/ic_launcher_light_round.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-xxxhdpi_ic_launcher_light_round.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-xxxhdpi/ic_launcher_light_round.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-hdpi_ic_launcher_light_round.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-hdpi/ic_launcher_light_round.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-xxxhdpi_ic_launcher_light.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-xxxhdpi/ic_launcher_light.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-xxhdpi_ic_launcher_light_foreground.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-xxhdpi/ic_launcher_light_foreground.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-xxxhdpi_ic_launcher_light_foreground.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-xxxhdpi/ic_launcher_light_foreground.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-xxhdpi_ic_launcher_light_round.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-xxhdpi/ic_launcher_light_round.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-xxhdpi_ic_launcher_light.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-xxhdpi/ic_launcher_light.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-hdpi_ic_launcher_light.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-hdpi/ic_launcher_light.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/xml_alarm_widget_info.xml.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/xml/alarm_widget_info.xml"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-hdpi_ic_launcher_light_foreground.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-hdpi/ic_launcher_light_foreground.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-xhdpi_ic_launcher_light.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-xhdpi/ic_launcher_light.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-anydpi-v26_ic_launcher_light_round.xml.flat",
+        "source": "com.alarmapp-main-69:/mipmap-anydpi-v26/ic_launcher_light_round.xml"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-mdpi_ic_launcher_light_foreground.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-mdpi/ic_launcher_light_foreground.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-anydpi-v26_ic_launcher_light.xml.flat",
+        "source": "com.alarmapp-main-69:/mipmap-anydpi-v26/ic_launcher_light.xml"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-xhdpi_ic_launcher_light_foreground.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-xhdpi/ic_launcher_light_foreground.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.alarmapp-debug-67:/mipmap-xhdpi_ic_launcher_light_round.png.flat",
+        "source": "com.alarmapp-main-69:/mipmap-xhdpi/ic_launcher_light_round.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-debug-67:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/daemon/8.10.2/com.alarmapp-main-69:/mipmap-xhdpi/ic_launcher_round.png"
     }
 ]

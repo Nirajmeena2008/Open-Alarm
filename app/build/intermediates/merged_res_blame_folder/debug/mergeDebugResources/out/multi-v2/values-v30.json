@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.alarmapp-mergeDebugResources-2:/values-v30/values-v30.xml",
+            "outputFile": "com.alarmapp-mergeDebugResources-65:/values-v30/values-v30.xml",
             "map": [
                 {
-                    "source": "/home/animer/.gradle/caches/8.10.2/transforms/1729dfd4b77c936e8e72e7f44ace5191/transformed/jetified-material3-release/res/values-v30/values-v30.xml",
+                    "source": "/home/animer/.gemini/antigravity/scratch/alarm-app/.gradle-home/caches/8.10.2/transforms/1729dfd4b77c936e8e72e7f44ace5191/transformed/jetified-material3-release/res/values-v30/values-v30.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

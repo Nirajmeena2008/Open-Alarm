@@ -39,21 +39,44 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:icon="@android:drawable/ic_lock_idle_alarm"
+        android:icon="@mipmap/ic_launcher"
         android:label="OpenAlarm"
-        android:roundIcon="@android:drawable/ic_lock_idle_alarm"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.NoActionBar" >
         <activity
             android:name="com.alarmapp.MainActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize" >
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity-alias
+            android:name="com.alarmapp.MainActivityDark"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="OpenAlarm"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:targetActivity="com.alarmapp.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity-alias>
+        <activity-alias
+            android:name="com.alarmapp.MainActivityLight"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_light"
+            android:label="OpenAlarm"
+            android:roundIcon="@mipmap/ic_launcher_light_round"
+            android:targetActivity="com.alarmapp.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
 
         <receiver
             android:name="com.alarmapp.widget.AlarmAppWidgetReceiver"
@@ -75,7 +98,13 @@
             android:showOnLockScreen="true"
             android:showWhenLocked="true"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-            android:turnScreenOn="true" />
+            android:turnScreenOn="true" >
+            <intent-filter>
+                <action android:name="com.alarmapp.action.ALARM_RINGING" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name="com.alarmapp.feature.developer.server.DeveloperServerService"
@@ -123,22 +152,8 @@
         </receiver>
 
         <service
-            android:name="androidx.car.app.CarAppMetadataHolderService"
-            android:enabled="false"
-            android:exported="false"
-            android:process="" >
-            <meta-data
-                android:name="androidx.car.app.CarAppMetadataHolderService.CAR_HARDWARE_MANAGER"
-                android:value="androidx.car.app.hardware.ProjectedCarHardwareManager" />
-        </service>
-
-        <activity
-            android:name="androidx.car.app.CarAppPermissionActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <receiver
-            android:name="androidx.car.app.notification.CarAppNotificationBroadcastReceiver"
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
             android:exported="false" />
         <!--
           Any addition to or deletion of the components below should also have a corresponding
@@ -294,12 +309,27 @@
         </receiver>
 
         <service
+            android:name="androidx.car.app.CarAppMetadataHolderService"
+            android:enabled="false"
+            android:exported="false"
+            android:process="" >
+            <meta-data
+                android:name="androidx.car.app.CarAppMetadataHolderService.CAR_HARDWARE_MANAGER"
+                android:value="androidx.car.app.hardware.ProjectedCarHardwareManager" />
+        </service>
+
+        <activity
+            android:name="androidx.car.app.CarAppPermissionActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name="androidx.car.app.notification.CarAppNotificationBroadcastReceiver"
+            android:exported="false" />
+
+        <service
             android:name="androidx.core.widget.RemoteViewsCompatService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
-        <service
-            android:name="androidx.room.MultiInstanceInvalidationService"
-            android:directBootAware="true"
-            android:exported="false" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"
