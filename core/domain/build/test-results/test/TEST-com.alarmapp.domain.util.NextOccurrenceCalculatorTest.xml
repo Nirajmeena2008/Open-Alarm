@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.alarmapp.domain.util.NextOccurrenceCalculatorTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-22T08:54:31" hostname="bravo-15" time="0.011">
+  <properties/>
+  <testcase name="DST fall back handles repeat hour smoothly()" classname="com.alarmapp.domain.util.NextOccurrenceCalculatorTest" time="0.003"/>
+  <testcase name="one-shot alarm in future today schedules for today()" classname="com.alarmapp.domain.util.NextOccurrenceCalculatorTest" time="0.001"/>
+  <testcase name="repeating alarm on weekdays skips weekend()" classname="com.alarmapp.domain.util.NextOccurrenceCalculatorTest" time="0.001"/>
+  <testcase name="repeating alarm today in future triggers today()" classname="com.alarmapp.domain.util.NextOccurrenceCalculatorTest" time="0.001"/>
+  <testcase name="DST spring forward handles clock gap without crashing or missing()" classname="com.alarmapp.domain.util.NextOccurrenceCalculatorTest" time="0.0"/>
+  <testcase name="one-shot alarm in past today rolls over to tomorrow()" classname="com.alarmapp.domain.util.NextOccurrenceCalculatorTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

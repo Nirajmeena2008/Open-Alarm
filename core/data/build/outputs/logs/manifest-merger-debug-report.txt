@@ -1,0 +1,16 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2489490789793689057.xml:2:13-83
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2489490789793689057.xml:2:13-83
+	package
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2489490789793689057.xml
+	xmlns:android
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2489490789793689057.xml:2:23-81
+uses-sdk
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2489490789793689057.xml reason: use-sdk injection requested
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2489490789793689057.xml
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2489490789793689057.xml
+	android:targetSdkVersion
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2489490789793689057.xml
+	android:minSdkVersion
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2489490789793689057.xml

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.alarmapp.feature.developer.WebhookDispatcherTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-22T09:09:21" hostname="bravo-15" time="0.089">
+  <properties/>
+  <testcase name="computeSignature produces deterministic sha256 hmac hex string()" classname="com.alarmapp.feature.developer.WebhookDispatcherTest" time="0.059"/>
+  <testcase name="HomeAssistantMqtt generates valid discovery config topic and payload()" classname="com.alarmapp.feature.developer.WebhookDispatcherTest" time="0.029"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

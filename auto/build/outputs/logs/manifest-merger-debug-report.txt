@@ -1,0 +1,40 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:2:1-19:12
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:2:1-19:12
+	package
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:4:5-17:19
+service#com.alarmapp.auto.AlarmCarAppService
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:5:9-12:19
+	android:exported
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:7:13-36
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:6:13-47
+intent-filter#action:name:androidx.car.app.CarAppService+category:name:androidx.car.app.category.IOT
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:8:13-11:29
+action#androidx.car.app.CarAppService
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:9:17-73
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:9:25-70
+category#androidx.car.app.category.IOT
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:10:17-74
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:10:27-71
+meta-data#androidx.car.app.minCarApiLevel
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:14:9-16:33
+	android:value
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:16:13-30
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:15:13-59
+uses-sdk
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml

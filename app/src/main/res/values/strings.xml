@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OpenAlarm</string>
+    <string name="widget_description">Shows next upcoming alarm</string>
+</resources>

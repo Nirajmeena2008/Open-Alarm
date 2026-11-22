@@ -1,0 +1,29 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.alarmapp.feature.alarm" >
+4
+5    <uses-sdk android:minSdkVersion="24" />
+6
+7    <application>
+7-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:4:5-14:19
+8        <activity
+8-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:5:9-13:80
+9            android:name="com.alarmapp.feature.alarm.ui.ringing.RingingActivity"
+9-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:6:13-55
+10            android:excludeFromRecents="true"
+10-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:7:13-46
+11            android:exported="true"
+11-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:8:13-36
+12            android:launchMode="singleInstance"
+12-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:9:13-48
+13            android:showOnLockScreen="true"
+13-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:10:13-44
+14            android:showWhenLocked="true"
+14-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:11:13-42
+15            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+15-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:13:13-77
+16            android:turnScreenOn="true" />
+16-->/home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:12:13-40
+17    </application>
+18
+19</manifest>

@@ -1,0 +1,49 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.alarmapp.wear" >
+4
+5    <uses-sdk android:minSdkVersion="26" />
+6
+7    <uses-feature android:name="android.hardware.type.watch" />
+7-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:4:5-64
+7-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:4:19-61
+8
+9    <application>
+9-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:6:5-26:19
+10        <service
+10-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:7:9-15:19
+11            android:name="com.alarmapp.wear.tile.AlarmTileService"
+11-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:8:13-50
+12            android:exported="true"
+12-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:9:13-36
+13            android:label="Next Alarm"
+13-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:10:13-39
+14            android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER" >
+14-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:11:13-91
+15            <intent-filter>
+15-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:12:13-14:29
+16                <action android:name="androidx.wear.tiles.action.BIND_TILE_PROVIDER" />
+16-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:13:17-88
+16-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:13:25-85
+17            </intent-filter>
+18        </service>
+19        <service
+19-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:17:9-25:19
+20            android:name="com.alarmapp.wear.complication.AlarmComplicationService"
+20-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:18:13-66
+21            android:exported="true"
+21-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:19:13-36
+22            android:label="Next Alarm"
+22-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:20:13-39
+23            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER" >
+23-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:21:13-99
+24            <intent-filter>
+24-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:22:13-24:29
+25                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+25-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:23:17-116
+25-->/home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:23:25-113
+26            </intent-filter>
+27        </service>
+28    </application>
+29
+30</manifest>

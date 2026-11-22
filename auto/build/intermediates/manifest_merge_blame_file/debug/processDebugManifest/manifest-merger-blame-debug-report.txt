@@ -1,0 +1,35 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.alarmapp.auto" >
+4
+5    <uses-sdk android:minSdkVersion="26" />
+6
+7    <application>
+7-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:4:5-17:19
+8        <service
+8-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:5:9-12:19
+9            android:name="com.alarmapp.auto.AlarmCarAppService"
+9-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:6:13-47
+10            android:exported="true" >
+10-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:7:13-36
+11            <intent-filter>
+11-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:8:13-11:29
+12                <action android:name="androidx.car.app.CarAppService" />
+12-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:9:17-73
+12-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:9:25-70
+13
+14                <category android:name="androidx.car.app.category.IOT" />
+14-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:10:17-74
+14-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:10:27-71
+15            </intent-filter>
+16        </service>
+17
+18        <meta-data
+18-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:14:9-16:33
+19            android:name="androidx.car.app.minCarApiLevel"
+19-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:15:13-59
+20            android:value="1" />
+20-->/home/animer/.gemini/antigravity/scratch/alarm-app/auto/src/main/AndroidManifest.xml:16:13-30
+21    </application>
+22
+23</manifest>

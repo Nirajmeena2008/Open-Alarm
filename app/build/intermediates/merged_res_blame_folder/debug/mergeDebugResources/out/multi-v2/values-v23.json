@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.alarmapp-mergeDebugResources-2:/values-v23/values-v23.xml",
+            "map": [
+                {
+                    "source": "/home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,121",
+                        "endColumns": "65,62",
+                        "endOffsets": "116,179"
+                    }
+                },
+                {
+                    "source": "/home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "184",
+                        "endColumns": "55",
+                        "endOffsets": "235"
+                    }
+                }
+            ]
+        }
+    ]
+}

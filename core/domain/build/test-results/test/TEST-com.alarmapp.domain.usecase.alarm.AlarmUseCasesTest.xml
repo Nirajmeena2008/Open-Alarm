@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.alarmapp.domain.usecase.alarm.AlarmUseCasesTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-22T08:54:30" hostname="bravo-15" time="0.503">
+  <properties/>
+  <testcase name="snoozeAlarm returns MaxSnoozeReached when limit hit()" classname="com.alarmapp.domain.usecase.alarm.AlarmUseCasesTest" time="0.349"/>
+  <testcase name="saveAlarm sets nextTriggerTime if enabled()" classname="com.alarmapp.domain.usecase.alarm.AlarmUseCasesTest" time="0.068"/>
+  <testcase name="dismissAlarm resets snooze count and reschedules repeating alarm()" classname="com.alarmapp.domain.usecase.alarm.AlarmUseCasesTest" time="0.029"/>
+  <testcase name="dismissAlarm disables one-shot alarm()" classname="com.alarmapp.domain.usecase.alarm.AlarmUseCasesTest" time="0.031"/>
+  <testcase name="snoozeAlarm increments count and updates trigger()" classname="com.alarmapp.domain.usecase.alarm.AlarmUseCasesTest" time="0.018"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

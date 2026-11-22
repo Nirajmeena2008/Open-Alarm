@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.alarmapp.domain.util.ChallengeGeneratorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-22T08:54:31" hostname="bravo-15" time="0.02">
+  <properties/>
+  <testcase name="generateMathProblem answers validate correctly()" classname="com.alarmapp.domain.util.ChallengeGeneratorTest" time="0.011"/>
+  <testcase name="generateMemorySequence produces sequence bounded by dimensions()" classname="com.alarmapp.domain.util.ChallengeGeneratorTest" time="0.004"/>
+  <testcase name="validator handles NFC, QR, and Shake properly()" classname="com.alarmapp.domain.util.ChallengeGeneratorTest" time="0.001"/>
+  <testcase name="generateMathProblem produces deterministic output for same seed()" classname="com.alarmapp.domain.util.ChallengeGeneratorTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

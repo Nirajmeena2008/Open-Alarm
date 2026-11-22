@@ -1,0 +1,15 @@
+com.alarmapp.data.test.data-test-0 /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/generated/res/resValues/test/debug
+com.alarmapp.data.test.data-mergeDebugUnitTestResources-1 /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/incremental/debugUnitTest/mergeDebugUnitTestResources/merged.dir
+com.alarmapp.data.test.data-mergeDebugUnitTestResources-2 /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/incremental/debugUnitTest/mergeDebugUnitTestResources/stripped.dir
+com.alarmapp.data.test.data-debugUnitTest-3 /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/merged_res/debugUnitTest/mergeDebugUnitTestResources
+com.alarmapp.data.test.data-debug-4 /home/animer/.gemini/antigravity/scratch/alarm-app/core/data/build/intermediates/packaged_res/debug/packageDebugResources
+com.alarmapp.data.test.data-sqlite-framework-2.4.0-5 /home/animer/.gradle/caches/8.10.2/transforms/03b16e6e90ab3d51ff2b7c849a2de43c/transformed/sqlite-framework-2.4.0/res
+com.alarmapp.data.test.data-jetified-datastore-core-release-6 /home/animer/.gradle/caches/8.10.2/transforms/19362ddfbdb248e20a892bc7fc88bf79/transformed/jetified-datastore-core-release/res
+com.alarmapp.data.test.data-jetified-datastore-release-7 /home/animer/.gradle/caches/8.10.2/transforms/206e110415fceb99e491dc305e968a6a/transformed/jetified-datastore-release/res
+com.alarmapp.data.test.data-jetified-annotation-experimental-1.1.0-rc01-8 /home/animer/.gradle/caches/8.10.2/transforms/23f29edc9c708ccf0bd49f4a4f8dcdd9/transformed/jetified-annotation-experimental-1.1.0-rc01/res
+com.alarmapp.data.test.data-room-testing-2.6.1-9 /home/animer/.gradle/caches/8.10.2/transforms/421001a1aeff3b666b5f53fad04125a9/transformed/room-testing-2.6.1/res
+com.alarmapp.data.test.data-jetified-datastore-preferences-release-10 /home/animer/.gradle/caches/8.10.2/transforms/42745364587e95024a419749547c1a3f/transformed/jetified-datastore-preferences-release/res
+com.alarmapp.data.test.data-core-runtime-2.2.0-11 /home/animer/.gradle/caches/8.10.2/transforms/469f4b8767ab9be997fab487045c9a79/transformed/core-runtime-2.2.0/res
+com.alarmapp.data.test.data-sqlite-2.4.0-12 /home/animer/.gradle/caches/8.10.2/transforms/60b40f777755465bf9a27765959430b0/transformed/sqlite-2.4.0/res
+com.alarmapp.data.test.data-room-runtime-2.6.1-13 /home/animer/.gradle/caches/8.10.2/transforms/a366a1280ec57fe64eeaf002f6110e3f/transformed/room-runtime-2.6.1/res
+com.alarmapp.data.test.data-jetified-room-ktx-2.6.1-14 /home/animer/.gradle/caches/8.10.2/transforms/f6f19dda143ffa56cf790cc197499778/transformed/jetified-room-ktx-2.6.1/res

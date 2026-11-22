@@ -1,0 +1,613 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.alarmapp.debug"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+7-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:5:5-105
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="35" />
+10
+11    <!-- Strictly isolated network permission: PRD constraint -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->[:feature:developer] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/developer/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-67
+12-->[:feature:developer] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/developer/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->[:feature:developer] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/developer/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:5-79
+13-->[:feature:developer] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/developer/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:22-76
+14    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+14-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-81
+14-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:22-78
+15    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+15-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-79
+15-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:22-76
+16    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+16-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:5-74
+16-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:22-71
+17    <uses-permission android:name="android.permission.WAKE_LOCK" />
+17-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:5-68
+17-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:22-65
+18    <uses-permission android:name="android.permission.VIBRATE" />
+18-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:5-66
+18-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:22-63
+19    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+19-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:5-77
+19-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:22-74
+20    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+20-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:5-81
+20-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:22-78
+21    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+21-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:5-77
+21-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:22-74
+22    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+22-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:5-92
+22-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:22-89
+23
+24    <queries>
+24-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:23:5-28:15
+25        <provider
+25-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:24:9-27:43
+26            android:name="androidx.car.app.connection.provider"
+26-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:25:13-64
+27            android:authorities="androidx.car.app.connection" />
+27-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:26:13-62
+28    </queries>
+29
+30    <permission
+30-->[androidx.core:core:1.15.0] /home/animer/.gradle/caches/8.10.2/transforms/2aa3cdc23f812aa66727d0c26fdf4e80/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
+31        android:name="com.alarmapp.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+31-->[androidx.core:core:1.15.0] /home/animer/.gradle/caches/8.10.2/transforms/2aa3cdc23f812aa66727d0c26fdf4e80/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
+32        android:protectionLevel="signature" />
+32-->[androidx.core:core:1.15.0] /home/animer/.gradle/caches/8.10.2/transforms/2aa3cdc23f812aa66727d0c26fdf4e80/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
+33
+34    <uses-permission android:name="com.alarmapp.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+34-->[androidx.core:core:1.15.0] /home/animer/.gradle/caches/8.10.2/transforms/2aa3cdc23f812aa66727d0c26fdf4e80/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
+34-->[androidx.core:core:1.15.0] /home/animer/.gradle/caches/8.10.2/transforms/2aa3cdc23f812aa66727d0c26fdf4e80/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+35
+36    <application
+36-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:7:5-37:19
+37        android:name="com.alarmapp.AlarmApplication"
+37-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:8:9-41
+38        android:allowBackup="true"
+38-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:9:9-35
+39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+39-->[androidx.core:core:1.15.0] /home/animer/.gradle/caches/8.10.2/transforms/2aa3cdc23f812aa66727d0c26fdf4e80/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
+40        android:debuggable="true"
+41        android:extractNativeLibs="false"
+42        android:icon="@android:drawable/ic_lock_idle_alarm"
+42-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:10:9-60
+43        android:label="OpenAlarm"
+43-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:11:9-34
+44        android:roundIcon="@android:drawable/ic_lock_idle_alarm"
+44-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:12:9-65
+45        android:supportsRtl="true"
+45-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:13:9-35
+46        android:theme="@android:style/Theme.Material.NoActionBar" >
+46-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:14:9-66
+47        <activity
+47-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:16:9-24:20
+48            android:name="com.alarmapp.MainActivity"
+48-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:17:13-41
+49            android:exported="true"
+49-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:18:13-36
+50            android:windowSoftInputMode="adjustResize" >
+50-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:19:13-55
+51            <intent-filter>
+51-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:20:13-23:29
+52                <action android:name="android.intent.action.MAIN" />
+52-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:21:17-69
+52-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:21:25-66
+53
+54                <category android:name="android.intent.category.LAUNCHER" />
+54-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:22:17-77
+54-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:22:27-74
+55            </intent-filter>
+56        </activity>
+57
+58        <receiver
+58-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:26:9-35:20
+59            android:name="com.alarmapp.widget.AlarmAppWidgetReceiver"
+59-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:27:13-58
+60            android:exported="true" >
+60-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:28:13-36
+61            <intent-filter>
+61-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:29:13-31:29
+62                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+62-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:30:17-84
+62-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:30:25-81
+63            </intent-filter>
+64
+65            <meta-data
+65-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:32:13-34:61
+66                android:name="android.appwidget.provider"
+66-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:33:17-58
+67                android:resource="@xml/alarm_widget_info" />
+67-->/home/animer/.gemini/antigravity/scratch/alarm-app/app/src/main/AndroidManifest.xml:34:17-58
+68        </receiver>
+69
+70        <activity
+70-->[:feature:alarm] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-16:43
+71            android:name="com.alarmapp.feature.alarm.ui.ringing.RingingActivity"
+71-->[:feature:alarm] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-81
+72            android:excludeFromRecents="true"
+72-->[:feature:alarm] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-46
+73            android:exported="true"
+73-->[:feature:alarm] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-36
+74            android:launchMode="singleInstance"
+74-->[:feature:alarm] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-48
+75            android:showOnLockScreen="true"
+75-->[:feature:alarm] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-44
+76            android:showWhenLocked="true"
+76-->[:feature:alarm] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-42
+77            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+77-->[:feature:alarm] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:13-77
+78            android:turnScreenOn="true" />
+78-->[:feature:alarm] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:13-40
+79
+80        <service
+80-->[:feature:developer] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/developer/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:9-15:58
+81            android:name="com.alarmapp.feature.developer.server.DeveloperServerService"
+81-->[:feature:developer] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/developer/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-88
+82            android:exported="false"
+82-->[:feature:developer] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/developer/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:13-37
+83            android:foregroundServiceType="specialUse" />
+83-->[:feature:developer] /home/animer/.gemini/antigravity/scratch/alarm-app/feature/developer/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:13-55
+84        <service
+84-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-16:19
+85            android:name="com.alarmapp.auto.AlarmCarAppService"
+85-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-64
+86            android:exported="true" >
+86-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-36
+87            <intent-filter>
+87-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-15:29
+88                <action android:name="androidx.car.app.CarAppService" />
+88-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:17-73
+88-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:25-70
+89
+90                <category android:name="androidx.car.app.category.IOT" />
+90-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:17-74
+90-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:27-71
+91            </intent-filter>
+92        </service>
+93
+94        <meta-data
+94-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:18:9-20:33
+95            android:name="androidx.car.app.minCarApiLevel"
+95-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:19:13-59
+96            android:value="1" />
+96-->[:auto] /home/animer/.gemini/antigravity/scratch/alarm-app/auto/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:20:13-30
+97
+98        <receiver
+98-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:18:9-26:20
+99            android:name="com.alarmapp.platform.alarm.AlarmBroadcastReceiver"
+99-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:19:13-78
+100            android:exported="false" >
+100-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:20:13-37
+101            <intent-filter>
+101-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:21:13-25:29
+102                <action android:name="com.alarmapp.action.ALARM_TRIGGER" />
+102-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:22:17-76
+102-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:22:25-73
+103                <action android:name="com.alarmapp.action.SNOOZE_ALARM" />
+103-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:23:17-75
+103-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:23:25-72
+104                <action android:name="com.alarmapp.action.DISMISS_ALARM" />
+104-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:17-76
+104-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:25-73
+105            </intent-filter>
+106        </receiver>
+107        <receiver
+107-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:27:9-35:20
+108            android:name="com.alarmapp.platform.alarm.BootReceiver"
+108-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:28:13-68
+109            android:exported="true" >
+109-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:29:13-36
+110            <intent-filter>
+110-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:30:13-34:29
+111                <action android:name="android.intent.action.BOOT_COMPLETED" />
+111-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:31:17-79
+111-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:31:25-76
+112                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+112-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:32:17-84
+112-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:32:25-81
+113                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+113-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:33:17-82
+113-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:33:25-79
+114            </intent-filter>
+115        </receiver>
+116        <receiver
+116-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:36:9-43:20
+117            android:name="com.alarmapp.platform.alarm.TimeZoneChangeReceiver"
+117-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:37:13-78
+118            android:exported="true" >
+118-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:38:13-36
+119            <intent-filter>
+119-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:39:13-42:29
+120                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+120-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:40:17-81
+120-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:40:25-78
+121                <action android:name="android.intent.action.TIME_SET" />
+121-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:41:17-73
+121-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:41:25-70
+122            </intent-filter>
+123        </receiver>
+124
+125        <service
+125-->[androidx.car.app:app-projected:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/bebaaadf4bf8487ba8d6edf3efcfd296/transformed/jetified-app-projected-1.4.0/AndroidManifest.xml:24:9-34:19
+126            android:name="androidx.car.app.CarAppMetadataHolderService"
+126-->[androidx.car.app:app-projected:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/bebaaadf4bf8487ba8d6edf3efcfd296/transformed/jetified-app-projected-1.4.0/AndroidManifest.xml:25:13-72
+127            android:enabled="false"
+127-->[androidx.car.app:app-projected:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/bebaaadf4bf8487ba8d6edf3efcfd296/transformed/jetified-app-projected-1.4.0/AndroidManifest.xml:26:13-36
+128            android:exported="false"
+128-->[androidx.car.app:app-projected:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/bebaaadf4bf8487ba8d6edf3efcfd296/transformed/jetified-app-projected-1.4.0/AndroidManifest.xml:27:13-37
+129            android:process="" >
+129-->[androidx.car.app:app-projected:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/bebaaadf4bf8487ba8d6edf3efcfd296/transformed/jetified-app-projected-1.4.0/AndroidManifest.xml:28:13-31
+130            <meta-data
+130-->[androidx.car.app:app-projected:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/bebaaadf4bf8487ba8d6edf3efcfd296/transformed/jetified-app-projected-1.4.0/AndroidManifest.xml:31:13-33:89
+131                android:name="androidx.car.app.CarAppMetadataHolderService.CAR_HARDWARE_MANAGER"
+131-->[androidx.car.app:app-projected:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/bebaaadf4bf8487ba8d6edf3efcfd296/transformed/jetified-app-projected-1.4.0/AndroidManifest.xml:32:17-97
+132                android:value="androidx.car.app.hardware.ProjectedCarHardwareManager" />
+132-->[androidx.car.app:app-projected:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/bebaaadf4bf8487ba8d6edf3efcfd296/transformed/jetified-app-projected-1.4.0/AndroidManifest.xml:33:17-86
+133        </service>
+134
+135        <activity
+135-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:31:9-34:75
+136            android:name="androidx.car.app.CarAppPermissionActivity"
+136-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:32:13-69
+137            android:exported="false"
+137-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:33:13-37
+138            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+138-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:34:13-72
+139
+140        <receiver
+140-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:36:9-38:40
+141            android:name="androidx.car.app.notification.CarAppNotificationBroadcastReceiver"
+141-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:37:13-93
+142            android:exported="false" />
+142-->[androidx.car.app:app:1.4.0] /home/animer/.gradle/caches/8.10.2/transforms/53f60063e07bc2fedd52c6c77a5570ce/transformed/jetified-app-1.4.0/AndroidManifest.xml:38:13-37
+143        <!--
+144          Any addition to or deletion of the components below should also have a corresponding
+145          change to the GlanceComponents class, so that alternate subclasses of these components may
+146          be specified by Glance users. Please also add a release note so that users of the
+147          multiprocess library will know if they need to add another manifest entry.
+148        -->
+149        <activity
+149-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:31:9-36:62
+150            android:name="androidx.glance.appwidget.action.ActionTrampolineActivity"
+150-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:32:13-85
+151            android:enabled="true"
+151-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:33:13-35
+152            android:excludeFromRecents="true"
+152-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:34:13-46
+153            android:exported="false"
+153-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:35:13-37
+154            android:theme="@android:style/Theme.NoDisplay" />
+154-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:36:13-59
+155        <activity
+155-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:37:9-44:81
+156            android:name="androidx.glance.appwidget.action.InvisibleActionTrampolineActivity"
+156-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:38:13-94
+157            android:enabled="true"
+157-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:39:13-35
+158            android:exported="false"
+158-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:40:13-37
+159            android:launchMode="singleInstance"
+159-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:41:13-48
+160            android:noHistory="true"
+160-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:42:13-37
+161            android:taskAffinity="androidx.glance.appwidget.ListAdapterCallbackTrampoline"
+161-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:43:13-91
+162            android:theme="@style/Widget.Glance.AppWidget.CallbackTrampoline" />
+162-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:44:13-78
+163
+164        <receiver
+164-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:46:9-49:40
+165            android:name="androidx.glance.appwidget.action.ActionCallbackBroadcastReceiver"
+165-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:47:13-92
+166            android:enabled="true"
+166-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:48:13-35
+167            android:exported="false" />
+167-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:49:13-37
+168        <receiver
+168-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:50:9-53:40
+169            android:name="androidx.glance.appwidget.UnmanagedSessionReceiver"
+169-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:51:13-78
+170            android:enabled="true"
+170-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:52:13-35
+171            android:exported="false" />
+171-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:53:13-37
+172        <receiver
+172-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:54:9-61:20
+173            android:name="androidx.glance.appwidget.MyPackageReplacedReceiver"
+173-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:55:13-79
+174            android:enabled="true"
+174-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:56:13-35
+175            android:exported="false" >
+175-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:57:13-37
+176            <intent-filter>
+176-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:58:13-60:29
+177                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+177-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:32:17-84
+177-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:32:25-81
+178            </intent-filter>
+179        </receiver>
+180
+181        <service
+181-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:63:9-66:72
+182            android:name="androidx.glance.appwidget.GlanceRemoteViewsService"
+182-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:64:13-78
+183            android:exported="true"
+183-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:65:13-36
+184            android:permission="android.permission.BIND_REMOTEVIEWS" />
+184-->[androidx.glance:glance-appwidget:1.2.0] /home/animer/.gradle/caches/8.10.2/transforms/011131e950a2ad271ff9b063247344fc/transformed/jetified-glance-appwidget-1.2.0/AndroidManifest.xml:66:13-69
+185
+186        <provider
+186-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:29:9-37:20
+187            android:name="androidx.startup.InitializationProvider"
+187-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:30:13-67
+188            android:authorities="com.alarmapp.debug.androidx-startup"
+188-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:31:13-68
+189            android:exported="false" >
+189-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:32:13-37
+190            <meta-data
+190-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:34:13-36:52
+191                android:name="androidx.work.WorkManagerInitializer"
+191-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:35:17-68
+192                android:value="androidx.startup" />
+192-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:36:17-49
+193            <meta-data
+193-->[androidx.emoji2:emoji2:1.3.0] /home/animer/.gradle/caches/8.10.2/transforms/fb4725e264248a47e6f375f4be0261fe/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+194                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+194-->[androidx.emoji2:emoji2:1.3.0] /home/animer/.gradle/caches/8.10.2/transforms/fb4725e264248a47e6f375f4be0261fe/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:30:17-75
+195                android:value="androidx.startup" />
+195-->[androidx.emoji2:emoji2:1.3.0] /home/animer/.gradle/caches/8.10.2/transforms/fb4725e264248a47e6f375f4be0261fe/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:31:17-49
+196            <meta-data
+196-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/animer/.gradle/caches/8.10.2/transforms/0cd01ae956842649463557c4a85255f2/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:29:13-31:52
+197                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+197-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/animer/.gradle/caches/8.10.2/transforms/0cd01ae956842649463557c4a85255f2/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:30:17-78
+198                android:value="androidx.startup" />
+198-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/animer/.gradle/caches/8.10.2/transforms/0cd01ae956842649463557c4a85255f2/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:31:17-49
+199            <meta-data
+199-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+200                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+200-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+201                android:value="androidx.startup" />
+201-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+202        </provider>
+203
+204        <service
+204-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:39:9-45:35
+205            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+205-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:40:13-88
+206            android:directBootAware="false"
+206-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:41:13-44
+207            android:enabled="@bool/enable_system_alarm_service_default"
+207-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:42:13-72
+208            android:exported="false" />
+208-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:43:13-37
+209        <service
+209-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:46:9-52:35
+210            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+210-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:47:13-84
+211            android:directBootAware="false"
+211-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:48:13-44
+212            android:enabled="@bool/enable_system_job_service_default"
+212-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:49:13-70
+213            android:exported="true"
+213-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:50:13-36
+214            android:permission="android.permission.BIND_JOB_SERVICE" />
+214-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:51:13-69
+215        <service
+215-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:53:9-59:35
+216            android:name="androidx.work.impl.foreground.SystemForegroundService"
+216-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:54:13-81
+217            android:directBootAware="false"
+217-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:55:13-44
+218            android:enabled="@bool/enable_system_foreground_service_default"
+218-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:56:13-77
+219            android:exported="false" />
+219-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:57:13-37
+220
+221        <receiver
+221-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:61:9-66:35
+222            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+222-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:62:13-88
+223            android:directBootAware="false"
+223-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:63:13-44
+224            android:enabled="true"
+224-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:64:13-35
+225            android:exported="false" />
+225-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:65:13-37
+226        <receiver
+226-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:67:9-77:20
+227            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+227-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:68:13-106
+228            android:directBootAware="false"
+228-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:69:13-44
+229            android:enabled="false"
+229-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:70:13-36
+230            android:exported="false" >
+230-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:71:13-37
+231            <intent-filter>
+231-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:73:13-76:29
+232                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+232-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:74:17-87
+232-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:74:25-84
+233                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+233-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:75:17-90
+233-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:75:25-87
+234            </intent-filter>
+235        </receiver>
+236        <receiver
+236-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:78:9-88:20
+237            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+237-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:79:13-104
+238            android:directBootAware="false"
+238-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:80:13-44
+239            android:enabled="false"
+239-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:81:13-36
+240            android:exported="false" >
+240-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:82:13-37
+241            <intent-filter>
+241-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:84:13-87:29
+242                <action android:name="android.intent.action.BATTERY_OKAY" />
+242-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:85:17-77
+242-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:85:25-74
+243                <action android:name="android.intent.action.BATTERY_LOW" />
+243-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:86:17-76
+243-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:86:25-73
+244            </intent-filter>
+245        </receiver>
+246        <receiver
+246-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:89:9-99:20
+247            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+247-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:90:13-104
+248            android:directBootAware="false"
+248-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:91:13-44
+249            android:enabled="false"
+249-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:92:13-36
+250            android:exported="false" >
+250-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:93:13-37
+251            <intent-filter>
+251-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:95:13-98:29
+252                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+252-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:96:17-83
+252-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:96:25-80
+253                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+253-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:97:17-82
+253-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:97:25-79
+254            </intent-filter>
+255        </receiver>
+256        <receiver
+256-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:100:9-109:20
+257            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+257-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:101:13-103
+258            android:directBootAware="false"
+258-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:102:13-44
+259            android:enabled="false"
+259-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:103:13-36
+260            android:exported="false" >
+260-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:104:13-37
+261            <intent-filter>
+261-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:106:13-108:29
+262                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+262-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:107:17-79
+262-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:107:25-76
+263            </intent-filter>
+264        </receiver>
+265        <receiver
+265-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:110:9-121:20
+266            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+266-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:111:13-88
+267            android:directBootAware="false"
+267-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:112:13-44
+268            android:enabled="false"
+268-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:113:13-36
+269            android:exported="false" >
+269-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:114:13-37
+270            <intent-filter>
+270-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:116:13-120:29
+271                <action android:name="android.intent.action.BOOT_COMPLETED" />
+271-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:31:17-79
+271-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:31:25-76
+272                <action android:name="android.intent.action.TIME_SET" />
+272-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:41:17-73
+272-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:41:25-70
+273                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+273-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:40:17-81
+273-->[:core:platform] /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:40:25-78
+274            </intent-filter>
+275        </receiver>
+276        <receiver
+276-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:122:9-131:20
+277            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+277-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:123:13-99
+278            android:directBootAware="false"
+278-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:124:13-44
+279            android:enabled="@bool/enable_system_alarm_service_default"
+279-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:125:13-72
+280            android:exported="false" >
+280-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:126:13-37
+281            <intent-filter>
+281-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:128:13-130:29
+282                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+282-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:129:17-98
+282-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:129:25-95
+283            </intent-filter>
+284        </receiver>
+285        <receiver
+285-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:132:9-142:20
+286            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+286-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:133:13-78
+287            android:directBootAware="false"
+287-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:134:13-44
+288            android:enabled="true"
+288-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:135:13-35
+289            android:exported="true"
+289-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:136:13-36
+290            android:permission="android.permission.DUMP" >
+290-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:137:13-57
+291            <intent-filter>
+291-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:139:13-141:29
+292                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+292-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:140:17-88
+292-->[androidx.work:work-runtime:2.9.1] /home/animer/.gradle/caches/8.10.2/transforms/360e8358fcbb41d2abb1322828f60ab8/transformed/work-runtime-2.9.1/AndroidManifest.xml:140:25-85
+293            </intent-filter>
+294        </receiver>
+295
+296        <service
+296-->[androidx.core:core-remoteviews:1.1.0] /home/animer/.gradle/caches/8.10.2/transforms/bb2b4735ce8e7117b933de69d7f9e126/transformed/jetified-core-remoteviews-1.1.0/AndroidManifest.xml:24:9-27:63
+297            android:name="androidx.core.widget.RemoteViewsCompatService"
+297-->[androidx.core:core-remoteviews:1.1.0] /home/animer/.gradle/caches/8.10.2/transforms/bb2b4735ce8e7117b933de69d7f9e126/transformed/jetified-core-remoteviews-1.1.0/AndroidManifest.xml:25:13-73
+298            android:permission="android.permission.BIND_REMOTEVIEWS" />
+298-->[androidx.core:core-remoteviews:1.1.0] /home/animer/.gradle/caches/8.10.2/transforms/bb2b4735ce8e7117b933de69d7f9e126/transformed/jetified-core-remoteviews-1.1.0/AndroidManifest.xml:26:13-69
+299        <service
+299-->[androidx.room:room-runtime:2.6.1] /home/animer/.gradle/caches/8.10.2/transforms/a366a1280ec57fe64eeaf002f6110e3f/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+300            android:name="androidx.room.MultiInstanceInvalidationService"
+300-->[androidx.room:room-runtime:2.6.1] /home/animer/.gradle/caches/8.10.2/transforms/a366a1280ec57fe64eeaf002f6110e3f/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+301            android:directBootAware="true"
+301-->[androidx.room:room-runtime:2.6.1] /home/animer/.gradle/caches/8.10.2/transforms/a366a1280ec57fe64eeaf002f6110e3f/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+302            android:exported="false" />
+302-->[androidx.room:room-runtime:2.6.1] /home/animer/.gradle/caches/8.10.2/transforms/a366a1280ec57fe64eeaf002f6110e3f/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+303
+304        <receiver
+304-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+305            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+305-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+306            android:directBootAware="false"
+306-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+307            android:enabled="true"
+307-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+308            android:exported="true"
+308-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+309            android:permission="android.permission.DUMP" >
+309-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+310            <intent-filter>
+310-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+311                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+311-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+311-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+312            </intent-filter>
+313            <intent-filter>
+313-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+314                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+314-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+314-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+315            </intent-filter>
+316            <intent-filter>
+316-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+317                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+317-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+317-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+318            </intent-filter>
+319            <intent-filter>
+319-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+320                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+320-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+320-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/animer/.gradle/caches/8.10.2/transforms/47dc25874e31f80c380ca95a5fcc467d/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+321            </intent-filter>
+322        </receiver>
+323    </application>
+324
+325</manifest>

@@ -1,0 +1,54 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:2:1-28:12
+	package
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:2:11-69
+uses-feature#android.hardware.type.watch
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:4:5-64
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:4:19-61
+application
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:6:5-26:19
+service#com.alarmapp.wear.tile.AlarmTileService
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:7:9-15:19
+	android:label
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:10:13-39
+	android:exported
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:9:13-36
+	android:permission
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:11:13-91
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:8:13-50
+intent-filter#action:name:androidx.wear.tiles.action.BIND_TILE_PROVIDER
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:12:13-14:29
+action#androidx.wear.tiles.action.BIND_TILE_PROVIDER
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:13:17-88
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:13:25-85
+service#com.alarmapp.wear.complication.AlarmComplicationService
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:17:9-25:19
+	android:label
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:20:13-39
+	android:exported
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:19:13-36
+	android:permission
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:21:13-99
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:18:13-66
+intent-filter#action:name:android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:22:13-24:29
+action#android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:23:17-116
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml:23:25-113
+uses-sdk
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/wear/src/main/AndroidManifest.xml

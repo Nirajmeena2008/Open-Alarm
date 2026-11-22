@@ -1,0 +1,93 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.alarmapp.platform" >
+4
+5    <uses-sdk android:minSdkVersion="24" />
+6
+7    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+7-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:4:5-81
+7-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:4:22-78
+8    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+8-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:5:5-79
+8-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:5:22-76
+9    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+9-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:6:5-74
+9-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:6:22-71
+10    <uses-permission android:name="android.permission.WAKE_LOCK" />
+10-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:7:5-68
+10-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:7:22-65
+11    <uses-permission android:name="android.permission.VIBRATE" />
+11-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:8:5-66
+11-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:8:22-63
+12    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+12-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:9:5-77
+12-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:9:22-74
+13    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+13-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:10:5-81
+13-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:10:22-78
+14    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+14-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:11:5-77
+14-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:11:22-74
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+15-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:12:5-92
+15-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:12:22-89
+16
+17    <application>
+17-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:14:5-43:19
+18        <receiver
+18-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:15:9-23:20
+19            android:name="com.alarmapp.platform.alarm.AlarmBroadcastReceiver"
+19-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:16:13-57
+20            android:exported="false" >
+20-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:17:13-37
+21            <intent-filter>
+21-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:18:13-22:29
+22                <action android:name="com.alarmapp.action.ALARM_TRIGGER" />
+22-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:19:17-76
+22-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:19:25-73
+23                <action android:name="com.alarmapp.action.SNOOZE_ALARM" />
+23-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:20:17-75
+23-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:20:25-72
+24                <action android:name="com.alarmapp.action.DISMISS_ALARM" />
+24-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:21:17-76
+24-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:21:25-73
+25            </intent-filter>
+26        </receiver>
+27        <receiver
+27-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:25:9-33:20
+28            android:name="com.alarmapp.platform.alarm.BootReceiver"
+28-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:26:13-47
+29            android:exported="true" >
+29-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:27:13-36
+30            <intent-filter>
+30-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:28:13-32:29
+31                <action android:name="android.intent.action.BOOT_COMPLETED" />
+31-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:29:17-79
+31-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:29:25-76
+32                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+32-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:30:17-84
+32-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:30:25-81
+33                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+33-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:31:17-82
+33-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:31:25-79
+34            </intent-filter>
+35        </receiver>
+36        <receiver
+36-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:35:9-42:20
+37            android:name="com.alarmapp.platform.alarm.TimeZoneChangeReceiver"
+37-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:36:13-57
+38            android:exported="true" >
+38-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:37:13-36
+39            <intent-filter>
+39-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:38:13-41:29
+40                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+40-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:39:17-81
+40-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:39:25-78
+41                <action android:name="android.intent.action.TIME_SET" />
+41-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:40:17-73
+41-->/home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:40:25-70
+42            </intent-filter>
+43        </receiver>
+44    </application>
+45
+46</manifest>

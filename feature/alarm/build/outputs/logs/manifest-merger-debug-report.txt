@@ -1,0 +1,36 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:2:1-16:12
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:2:1-16:12
+	package
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:4:5-14:19
+activity#com.alarmapp.feature.alarm.ui.ringing.RingingActivity
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:5:9-13:80
+	android:turnScreenOn
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:12:13-40
+	android:excludeFromRecents
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:7:13-46
+	android:showWhenLocked
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:11:13-42
+	android:launchMode
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:9:13-48
+	android:exported
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:8:13-36
+	android:showOnLockScreen
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:10:13-44
+	android:theme
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:13:13-77
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml:6:13-55
+uses-sdk
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/feature/alarm/src/main/AndroidManifest.xml

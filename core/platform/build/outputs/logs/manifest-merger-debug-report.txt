@@ -1,0 +1,110 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:2:1-45:12
+	package
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:4:5-81
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:4:22-78
+uses-permission#android.permission.SCHEDULE_EXACT_ALARM
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:5:22-76
+uses-permission#android.permission.USE_EXACT_ALARM
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:6:5-74
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:6:22-71
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:7:5-68
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:7:22-65
+uses-permission#android.permission.VIBRATE
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:8:5-66
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:8:22-63
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:9:5-77
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:9:22-74
+uses-permission#android.permission.USE_FULL_SCREEN_INTENT
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:10:5-81
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:10:22-78
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:11:5-77
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:11:22-74
+uses-permission#android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:12:5-92
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:12:22-89
+application
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:14:5-43:19
+receiver#com.alarmapp.platform.alarm.AlarmBroadcastReceiver
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:15:9-23:20
+	android:exported
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:17:13-37
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:16:13-57
+intent-filter#action:name:com.alarmapp.action.ALARM_TRIGGER+action:name:com.alarmapp.action.DISMISS_ALARM+action:name:com.alarmapp.action.SNOOZE_ALARM
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:18:13-22:29
+action#com.alarmapp.action.ALARM_TRIGGER
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:19:17-76
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:19:25-73
+action#com.alarmapp.action.SNOOZE_ALARM
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:20:17-75
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:20:25-72
+action#com.alarmapp.action.DISMISS_ALARM
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:21:17-76
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:21:25-73
+receiver#com.alarmapp.platform.alarm.BootReceiver
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:25:9-33:20
+	android:exported
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:27:13-36
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:26:13-47
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED+action:name:android.intent.action.QUICKBOOT_POWERON
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:28:13-32:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:29:17-79
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:29:25-76
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:30:17-84
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:30:25-81
+action#android.intent.action.QUICKBOOT_POWERON
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:31:17-82
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:31:25-79
+receiver#com.alarmapp.platform.alarm.TimeZoneChangeReceiver
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:35:9-42:20
+	android:exported
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:37:13-36
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:36:13-57
+intent-filter#action:name:android.intent.action.TIMEZONE_CHANGED+action:name:android.intent.action.TIME_SET
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:38:13-41:29
+action#android.intent.action.TIMEZONE_CHANGED
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:39:17-81
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:39:25-78
+action#android.intent.action.TIME_SET
+ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:40:17-73
+	android:name
+		ADDED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml:40:25-70
+uses-sdk
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml
+INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/animer/.gemini/antigravity/scratch/alarm-app/core/platform/src/main/AndroidManifest.xml
