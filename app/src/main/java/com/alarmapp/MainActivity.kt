@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -65,6 +66,11 @@ class MainActivity : ComponentActivity() {
                 )
             }
             val settingsState by settingsViewModel.uiState.collectAsState()
+            val context = LocalContext.current
+
+            LaunchedEffect(settingsState.themeMode) {
+                AppIconManager.updateAppIcon(context, settingsState.themeMode)
+            }
 
             AlarmTheme(themeMode = settingsState.themeMode) {
                 val navController = rememberNavController()
